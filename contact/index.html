@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Marco Lenci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .cl{min-height:calc(100vh - 72px);display:grid;grid-template-columns:1fr 1fr;padding-top:72px;}
+    .cl-l{padding:6rem 4rem 5rem 3rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;}
+    .cl-r{background:var(--dark);padding:6rem 3rem 5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+    .c-ey{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:block;}
+    .c-ti{font-size:clamp(2.5rem,4vw,4rem);font-weight:300;letter-spacing:-.025em;line-height:1.05;margin-bottom:1.5rem;}
+    .c-ti em{font-style:italic;color:var(--accent);}
+    .c-in{font-size:1.05rem;font-weight:300;color:var(--muted);line-height:1.85;max-width:44ch;margin-bottom:3rem;}
+    .ci{display:flex;flex-direction:column;gap:2px;}
+    .cib{display:grid;grid-template-columns:120px 1fr;gap:1.5rem;padding:1.5rem;border:1px solid var(--rule);background:var(--bright);}
+    .cil{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+    .civ{font-size:.98rem;font-weight:300;line-height:1.6;}
+    .civ a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);}
+    .civ a:hover{color:var(--accent);}
+    .r-ey{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2rem;display:block;}
+    .r-ti{font-size:1.8rem;font-weight:300;color:#fff;margin-bottom:3rem;line-height:1.3;}
+    .r-ti em{font-style:italic;color:var(--accent);}
+    .el{display:flex;flex-direction:column;gap:2px;margin-bottom:4rem;}
+    .ea{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border:1px solid rgba(255,255,255,.08);color:var(--paper);text-decoration:none;font-size:.95rem;font-weight:300;transition:background .2s,border-color .2s;}
+    .ea:hover{background:rgba(255,255,255,.04);border-color:var(--accent);}
+    .ar{color:var(--accent);}
+    .ab{border-top:1px solid rgba(255,255,255,.08);padding-top:2.5rem;}
+    .al{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem;}
+    .at{font-size:.92rem;font-weight:300;color:rgba(255,255,255,.6);line-height:2;}
+    @media(max-width:768px){.cl{grid-template-columns:1fr;}.cl-l,.cl-r{padding:4rem 1.5rem;}.cib{grid-template-columns:1fr;gap:.4rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Marco Lenci</a>
+  <ul class="nav-links">
+    <li><a href="../research/index.html">Research</a></li>
+    <li><a href="../teaching/index.html">Teaching</a></li>
+    <li><a href="../cv/index.html">CV</a></li>
+    <li><a href="../outreach/index.html">Outreach</a></li>
+    <li><a href="index.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+<div class="cl">
+  <div class="cl-l">
+    <span class="c-ey">Get in Touch</span>
+    <h1 class="c-ti">Let us<br><em>Connect</em></h1>
+    <p class="c-in">Whether you are a student, a collaborator, or simply curious about the mathematics of chaos — I am glad to hear from you.</p>
+    <div class="ci">
+      <div class="cib"><span class="cil">Email</span><span class="civ"><a href="mailto:marco.lenci@unibo.it">marco.lenci@unibo.it</a></span></div>
+      <div class="cib"><span class="cil">Phone</span><span class="civ"><a href="tel:+390512094479">+39 051 20 94479</a><br><span style="font-size:.84rem;color:var(--muted)">Also: +39 0547 338355</span></span></div>
+      <div class="cib"><span class="cil">Office</span><span class="civ">Office no. 70 &mdash; Via Irnerio 46, Bologna</span></div>
+      <div class="cib"><span class="cil">Hours</span><span class="civ">Fridays 11:00&ndash;12:30 (term only)<br><span style="font-size:.84rem;color:var(--muted);font-style:italic">Otherwise by appointment</span></span></div>
+      <div class="cib"><span class="cil">ORCID</span><span class="civ"><a href="https://orcid.org/0000-0002-4283-7488" target="_blank">0000-0002-4283-7488</a></span></div>
+    </div>
+  </div>
+  <div class="cl-r">
+    <span class="r-ey">Online Presence</span>
+    <h2 class="r-ti">Find my work<br>across the <em>web</em></h2>
+    <div class="el">
+      <a href="https://scholar.google.it/citations?user=Z6OLx1oAAAAJ" class="ea" target="_blank"><span>Google Scholar</span><span class="ar">&#8599;</span></a>
+      <a href="https://orcid.org/0000-0002-4283-7488" class="ea" target="_blank"><span>ORCID</span><span class="ar">&#8599;</span></a>
+      <a href="https://www.researchgate.net/profile/Marco-Lenci-2" class="ea" target="_blank"><span>ResearchGate</span><span class="ar">&#8599;</span></a>
+      <a href="https://www.unibo.it/sitoweb/marco.lenci/en" class="ea" target="_blank"><span>UniBo institutional page</span><span class="ar">&#8599;</span></a>
+      <a href="http://dinamici.org" class="ea" target="_blank"><span>DinAmicI &mdash; Italian Dynamicists</span><span class="ar">&#8599;</span></a>
+    </div>
+    <div class="ab">
+      <div class="al">Postal Address</div>
+      <div class="at">Marco Lenci<br>Dipartimento di Fisica e Astronomia &ldquo;Augusto Righi&rdquo;<br>Viale Berti Pichat 6/2<br>40127 Bologna, Italy</div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-left">&copy; 2025 Marco Lenci &middot; Universit&agrave; di Bologna &middot; Partita IVA: 01131710376</div>
+</footer>
+</body>
+</html>

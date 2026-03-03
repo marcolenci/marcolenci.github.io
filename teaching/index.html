@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching — Marco Lenci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .page-header{padding:7rem 0 4rem;border-bottom:1px solid var(--rule);}
+    .page-title{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;letter-spacing:-.025em;line-height:1.0;}
+    .page-title em{font-style:italic;color:var(--accent);}
+    .page-intro{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--muted);max-width:60ch;margin-top:1.5rem;}
+
+    .yr-heading{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);padding:.6rem 0;border-bottom:1px solid var(--rule);margin-bottom:0;display:flex;align-items:center;gap:1rem;margin-top:2.5rem;}
+    .yr-heading::after{content:'';flex:1;height:1px;background:var(--rule);}
+    .yr-heading:first-of-type{margin-top:0;}
+
+    .course-card{background:var(--bright);border:1px solid var(--rule);border-left:3px solid var(--accent);padding:2rem 2rem 2rem 2rem;margin-bottom:2px;transition:transform .2s;}
+    .course-card:hover{transform:translateX(4px);}
+    .course-code{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+    .course-name{font-size:1.15rem;font-weight:400;margin-bottom:.5rem;}
+    .course-meta{font-size:.88rem;color:var(--muted);font-style:italic;margin-bottom:.8rem;}
+    .course-detail{font-size:.9rem;font-weight:300;line-height:1.7;color:var(--ink);}
+    .course-links{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap;}
+
+    .philosophy-block{background:var(--dark);color:var(--paper);padding:4rem 3rem;margin-top:0;}
+    .phil-inner{max-width:1100px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start;}
+    .phil-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);padding-top:.3rem;}
+    .phil-text{font-size:1.05rem;font-weight:300;line-height:1.9;color:rgba(255,255,255,.7);}
+    .phil-text p{margin-bottom:1.4rem;}
+    .phil-text em{font-style:italic;color:rgba(255,255,255,.9);}
+    .phil-text a{color:var(--accent);text-decoration:none;}
+
+    .us-banner{background:var(--bright);border:1px solid var(--rule);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:3rem;}
+    .us-banner h3{font-size:1.3rem;font-weight:300;}
+    .us-banner p{font-size:.95rem;color:var(--muted);margin-top:.4rem;max-width:50ch;}
+
+    @media(max-width:768px){
+      .phil-inner{grid-template-columns:1fr;gap:1.5rem;padding:0 1.5rem;}
+      .philosophy-block{padding:3rem 0;}
+      .us-banner{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Marco Lenci</a>
+  <ul class="nav-links">
+    <li><a href="../research/index.html">Research</a></li>
+    <li><a href="index.html" class="active">Teaching</a></li>
+    <li><a href="../cv/index.html">CV</a></li>
+    <li><a href="../outreach/index.html">Outreach</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="inner">
+      <span class="sec-eyebrow">Teaching</span>
+      <h1 class="page-title">Courses &amp;<br><em>Pedagogy</em></h1>
+      <p class="page-intro">From first-year analytical mechanics to graduate topics in ergodic theory and climate modelling. Office hours: Fridays 11:00–12:30 (during term), Via Irnerio 46, Office 70.</p>
+    </div>
+  </div>
+
+  <!-- CURRENT 2025/26 -->
+  <section>
+    <div class="inner">
+      <span class="sec-eyebrow reveal">Current Courses · 2025–2026</span>
+
+      <div class="reveal">
+        <div class="yr-heading">First Cycle (Undergraduate)</div>
+        <div class="course-card">
+          <div class="course-code">00686 · 8 CFU</div>
+          <div class="course-name">Analytical Mechanics (A–L)</div>
+          <div class="course-meta">First cycle degree in Physics · Bologna campus</div>
+          <div class="course-detail">Lagrangian and Hamiltonian mechanics, canonical transformations, integrability, perturbation theory, and the bridge to statistical mechanics. The rigorous mathematical framework underlying classical physics.</div>
+          <div class="course-links">
+            <a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2025/492784" class="btn-sm" target="_blank">Course page</a>
+            <a href="https://virtuale.unibo.it/course/view.php?id=72584" class="btn-sm" target="_blank">Virtuale (resources)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="yr-heading">Second Cycle (Graduate)</div>
+        <div class="course-card">
+          <div class="course-code">77802 · 6 CFU</div>
+          <div class="course-name">Complex Systems</div>
+          <div class="course-meta">Second cycle degree in Science of Climate · Bologna campus · Sep–Dec 2025</div>
+          <div class="course-detail">Mathematical and physical foundations of complex systems: emergent behaviour, scaling, nonlinear dynamics, and stochastic processes relevant to climate science and Earth systems.</div>
+          <div class="course-links">
+            <a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2025/480809" class="btn-sm" target="_blank">Course page</a>
+            <a href="https://virtuale.unibo.it/course/view.php?id=72583" class="btn-sm" target="_blank">Virtuale (resources)</a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-code">99512 · Module 2</div>
+          <div class="course-name">Statistical Physics for Climate Science</div>
+          <div class="course-meta">Second cycle degree in Science of Climate · Bologna campus · Sep–Dec 2025</div>
+          <div class="course-detail">Statistical mechanics applied to climate: entropy, fluctuations, response theory, and disordered systems as models for atmospheric and oceanic variability.</div>
+          <div class="course-links">
+            <a href="https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/course-unit-catalogue/course-unit/2025/518459" class="btn-sm" target="_blank">Course page</a>
+            <a href="https://virtuale.unibo.it/course/view.php?id=69282" class="btn-sm" target="_blank">Virtuale (resources)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAST BOLOGNA COURSES -->
+      <div class="reveal" style="margin-top:3rem">
+        <span class="sec-eyebrow" style="margin-bottom:1.5rem">Recent Past Courses · Bologna (selection)</span>
+        <div class="yr-heading">Mathematical Methods &amp; Analysis</div>
+        <div class="course-card">
+          <div class="course-name">Mathematical Analysis for Architecture</div>
+          <div class="course-meta">First cycle degree, Architecture · Taught in multiple academic years including 2019–2023</div>
+          <div class="course-detail">Calculus, ODEs, and their applications tailored to students in architecture and design. Includes a bespoke exam guide (Vademecum per gli esami di matematica online) developed for online assessment during and after the pandemic.</div>
+        </div>
+        <div class="course-card">
+          <div class="course-name">Mathematical Physics</div>
+          <div class="course-meta">MSc Physics / MSc Mathematics · Taught regularly 2007–2022</div>
+          <div class="course-detail">Rigorous treatment of classical and statistical mechanics. Topics vary by year but typically include Hamiltonian systems, stability, ergodic theory, and thermodynamical limits.</div>
+        </div>
+        <div class="course-card">
+          <div class="course-name">Probability and Mathematical Statistics</div>
+          <div class="course-meta">First cycle degree, Mathematics / Physics · Various years</div>
+          <div class="course-detail">Foundations of measure-theoretic probability, limit theorems, Markov chains, and their applications in physics and data analysis.</div>
+        </div>
+      </div>
+
+      <!-- US BANNER -->
+      <div class="us-banner reveal">
+        <div>
+          <h3>Teaching in the United States (1996–2006)</h3>
+          <p>Courses taught at Rutgers University, SUNY Stony Brook, and Stevens Institute of Technology, covering topics from calculus to advanced topics in mathematical physics and dynamical systems.</p>
+        </div>
+        <a href="us/index.html" class="btn btn-dark">View US Teaching Archive →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="philosophy-block reveal">
+  <div class="phil-inner">
+    <div class="phil-label">Teaching<br>Philosophy</div>
+    <div class="phil-text">
+      <p>A theorem is not truly understood until it has been <em>discovered</em> — or re-discovered — by the student. My courses are designed to provoke that moment of realisation: where abstraction snaps into place and the student sees not just the result, but the reason behind it.</p>
+      <p>I have written about the structural differences between university teaching in Italy and the United States in my essay <em><a href="https://www.amazon.it/dp/B0B5NH96MB/" target="_blank">Metodi a confronto: Didattica Universitaria in USA e in Italia</a></em> (2022). These reflections inform how I design assessments, structure lectures, and handle office hours. The best students I have taught were those willing to be genuinely confused for a while — confusion is where learning lives.</p>
+      <p>I also care deeply about mathematical outreach: the belief that the beauty and importance of mathematics should not be a secret kept among specialists. I have written popular articles on the <em><a href="https://aulascienze.scuola.zanichelli.it/come-te-lo-spiego/2020/05/15/la-matematica-del-distanziamento/" target="_blank">mathematics of social distancing</a></em>, on mathematics and culture, and in 2025 contributed a volume on <em>Il teorema ergodico</em> to the Le Scienze series <em>Rivoluzioni Matematiche</em>.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">Marco Lenci · Università di Bologna<br>Office hours: Fridays 11:00–12:30 · Via Irnerio 46, Office 70</div>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+</footer>
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}}),{threshold:.04});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae — Marco Lenci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .page-header{padding:7rem 0 4rem;border-bottom:1px solid var(--rule);}
+    .page-title{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;letter-spacing:-.025em;line-height:1.0;}
+    .page-title em{font-style:italic;color:var(--accent);}
+
+    .cv-grid{display:grid;grid-template-columns:220px 1fr;gap:0;}
+    .cv-block{border-bottom:1px solid var(--rule);padding:3.5rem 0;display:grid;grid-template-columns:220px 1fr;gap:3rem;}
+    .cv-block:last-child{border-bottom:none;}
+    .cv-section-label{
+      font-family:'JetBrains Mono',monospace;
+      font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--accent);padding-top:.3rem;
+    }
+    .cv-entries{}
+    .cv-entry{display:grid;grid-template-columns:140px 1fr;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid rgba(213,205,191,.3);}
+    .cv-entry:last-child{border-bottom:none;}
+    .cv-entry:first-child{padding-top:0;}
+    .cv-period{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);letter-spacing:.04em;padding-top:.2rem;white-space:nowrap;}
+    .cv-role{font-size:1rem;font-weight:400;margin-bottom:.25rem;line-height:1.4;}
+    .cv-inst{font-size:.9rem;color:var(--muted);font-style:italic;}
+
+    .single-entry{padding:1.2rem 0;border-bottom:1px solid rgba(213,205,191,.3);}
+    .single-entry:last-child{border-bottom:none;}
+    .single-entry:first-child{padding-top:0;}
+    .single-label{font-size:.85rem;font-weight:300;line-height:1.6;}
+    .single-detail{font-size:.85rem;color:var(--muted);font-style:italic;}
+
+    @media(max-width:768px){
+      .cv-block{grid-template-columns:1fr;gap:1rem;}
+      .cv-entry{grid-template-columns:1fr;gap:.3rem;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Marco Lenci</a>
+  <ul class="nav-links">
+    <li><a href="../research/index.html">Research</a></li>
+    <li><a href="../teaching/index.html">Teaching</a></li>
+    <li><a href="index.html" class="active">CV</a></li>
+    <li><a href="../outreach/index.html">Outreach</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="inner">
+      <span class="sec-eyebrow">Curriculum Vitae</span>
+      <h1 class="page-title">Academic<br><em>Profile</em></h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="inner">
+
+      <!-- AFFILIATIONS -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Affiliations</div>
+        <div class="cv-entries">
+          <div class="single-entry"><div class="single-label">Full Professor of Mathematical Physics</div><div class="single-detail">Department of Physics and Astronomy, Università di Bologna</div></div>
+          <div class="single-entry"><div class="single-label">Associate Member of INFN</div><div class="single-detail">Italian National Institute for Nuclear Physics, Bologna Unit</div></div>
+          <div class="single-entry"><div class="single-label">Tutor and member of the Scientific Committee</div><div class="single-detail">Collegio Superiore (College of Excellence), Università di Bologna</div></div>
+        </div>
+      </div>
+
+      <!-- ACADEMIC CAREER -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Academic<br>Career</div>
+        <div class="cv-entries">
+          <div class="cv-entry"><span class="cv-period">2022 →</span><div><div class="cv-role">Full Professor of Mathematical Physics</div><div class="cv-inst">Department of Physics and Astronomy, Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2014–2022</span><div><div class="cv-role">Full Professor of Mathematical Physics</div><div class="cv-inst">Department of Mathematics, Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2006–2014</span><div><div class="cv-role">Associate Professor of Mathematical Physics</div><div class="cv-inst">Department of Mathematics, Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2006–2007</span><div><div class="cv-role">Associate Professor of Mathematics (on leave)</div><div class="cv-inst">Department of Mathematical Sciences, Stevens Institute of Technology</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2006 Spring</span><div><div class="cv-role">Tenure at Stevens Institute of Technology</div><div class="cv-inst">Hoboken, NJ, USA</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2001–2006</span><div><div class="cv-role">Assistant Professor of Mathematics</div><div class="cv-inst">Department of Mathematical Sciences, Stevens Institute of Technology</div></div></div>
+          <div class="cv-entry"><span class="cv-period">1999–2001</span><div><div class="cv-role">Postdoctoral Associate / Lecturer</div><div class="cv-inst">Institute for Mathematical Sciences, SUNY at Stony Brook. Supervisor: J. Milnor</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2001 Feb</span><div><div class="cv-role">Qualification as Maître des Conferences in Mathematics</div><div class="cv-inst">Ministère de l'éducation nationale, France</div></div></div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Education</div>
+        <div class="cv-entries">
+          <div class="cv-entry"><span class="cv-period">Aug 1999</span><div><div class="cv-role">Ph.D. in Mathematics</div><div class="cv-inst">Rutgers University. Advisor: Joel L. Lebowitz</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jun 1998</span><div><div class="cv-role">Ph.D. in Mathematics</div><div class="cv-inst">Università di Bologna. Advisor: S. Graffi. External advisor: Ya. G. Sinai</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jan 1995–Feb 1997</span><div><div class="cv-role">Visiting Fellow</div><div class="cv-inst">Department of Mathematics, Princeton University. Supervisor: Ya. G. Sinai</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jul 1993</span><div><div class="cv-role">Laurea in Physics (summa cum laude)</div><div class="cv-inst">Università di Bologna. Advisor: S. Graffi</div></div></div>
+        </div>
+      </div>
+
+      <!-- VISITING POSITIONS -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Short-term<br>Visiting<br>Positions</div>
+        <div class="cv-entries">
+          <div class="single-entry"><div class="single-label">2014–2016 — Visiting Academic, Courant Institute, New York University (USA)</div></div>
+          <div class="single-entry"><div class="single-label">2022 — Queen's University, Kingston, Canada</div></div>
+          <div class="single-entry"><div class="single-label">2011 — Fields Institute, Toronto, Canada</div></div>
+          <div class="single-entry"><div class="single-label">2008 — Centre de Physique Théorique, Luminy, France</div></div>
+          <div class="single-entry"><div class="single-label">2007 — Max-Planck-Institut für Physik Komplexer Systeme, Dresden; MSRI, USA</div></div>
+          <div class="single-entry"><div class="single-label">2006–2012 (several times) — Courant Institute, New York University, USA</div></div>
+          <div class="single-entry"><div class="single-label">2002 — Scuola Normale Superiore, Italy</div></div>
+          <div class="single-entry"><div class="single-label">2001 — Max-Planck-Institut für Evolutionäre Anthropologie, Leipzig, Germany</div></div>
+          <div class="single-entry"><div class="single-label">1993 — Université de Paris VII, France</div></div>
+        </div>
+      </div>
+
+      <!-- GRANTS -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Research<br>Grants</div>
+        <div class="cv-entries">
+          <div class="cv-entry"><span class="cv-period">2023–2025</span><div><div class="cv-role">PRIN Grant — "Stochastic properties of dynamical systems"</div><div class="cv-inst">Vice-PI, Head of the Bologna Unit</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2019–2023</span><div><div class="cv-role">PRIN Grant — "Regular and stochastic behaviour in dynamical systems"</div><div class="cv-inst">Vice-PI, Head of the Bologna Unit</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2019–2021</span><div><div class="cv-role">Joint research project UniBo–UniFi–UniPd — "Stochastic dynamics in disordered environments"</div><div class="cv-inst">Co-PI</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2014–2016</span><div><div class="cv-role">PRIN Grant — "Mathematical problems in kinetic theory and applications"</div><div class="cv-inst">Member, Rome–La Sapienza Unit</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2010–2013</span><div><div class="cv-role">FIRB-Futuro in Ricerca Grant — "Anomalous transport of light in complex systems"</div><div class="cv-inst">Member, Bologna Unit</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2004–2007</span><div><div class="cv-role">NSF Grant — "Non-compact, random billiard systems; Quantum large deviations"</div><div class="cv-inst">Principal Investigator (USA)</div></div></div>
+        </div>
+      </div>
+
+      <!-- EDITORIAL -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Editorial<br>Boards</div>
+        <div class="cv-entries">
+          <div class="single-entry"><div class="single-label">Chaos, Solitons &amp; Fractals <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--accent);margin-left:.5rem;">2025 →</span></div></div>
+          <div class="single-entry"><div class="single-label">Journal of Statistical Physics <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--accent);margin-left:.5rem;">2021 →</span></div></div>
+          <div class="single-entry"><div class="single-label">Mathematics, Topic Editor <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--accent);margin-left:.5rem;">2020 →</span></div></div>
+          <div class="single-entry"><div class="single-label">Far East Journal of Dynamical Systems <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);margin-left:.5rem;">2012 →</span></div></div>
+          <div class="single-entry"><div class="single-detail single-label" style="color:var(--muted);">Previously: Bollettino UMI (Guest Editor 2022–23), ISRN Probability and Statistics (2012–14), and others</div></div>
+        </div>
+      </div>
+
+      <!-- CONFERENCES ORGANISED -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">Conferences<br>Organised<br>(selection)</div>
+        <div class="cv-entries">
+          <div class="cv-entry"><span class="cv-period">Sep 2026</span><div><div class="cv-role">INdAM Meeting "Lean for the curious mathematician"</div><div class="cv-inst">Palazzone di Cortona. Member of the Scientific Committee</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Dec 2025</span><div><div class="cv-role">ItaLean 2025 — "Bridging Formal Mathematics and AI"</div><div class="cv-inst">Università di Bologna. Co-organizer</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Sep 2024</span><div><div class="cv-role">DinAmicI in Rio — "Dynamics, Applications, Interactions"</div><div class="cv-inst">IMPA, Rio de Janeiro. Member of the Scientific Committee</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jan 2024</span><div><div class="cv-role">"Computer-verified proofs: 48 hours in Rome"</div><div class="cv-inst">Università di Roma Tor Vergata. Co-organizer</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jun 2023</span><div><div class="cv-role">"Regular and Stochastic Behaviour in Dynamical Systems"</div><div class="cv-inst">Scuola Normale Superiore, Pisa. Member of the Scientific Committee</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jun 2017</span><div><div class="cv-role">INdAM Workshop "DinAmicI V — Modern Trends in Ergodic Theory"</div><div class="cv-inst">National Institute of Advanced Mathematics, Rome. Co-organizer</div></div></div>
+          <div class="cv-entry"><span class="cv-period">Jun 2009</span><div><div class="cv-role">"First Meeting of the (Mostly) Young Italian Hyperbolicians"</div><div class="cv-inst">Corinaldo, Italy. Organizer</div></div></div>
+        </div>
+      </div>
+
+      <!-- PHD ADVISING -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">PhD &amp;<br>Postdoc<br>Advising</div>
+        <div class="cv-entries">
+          <div class="cv-entry"><span class="cv-period">2024–2025</span><div><div class="cv-role">Postdoc tutor: Mattia Radice</div><div class="cv-inst">Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2024–2025</span><div><div class="cv-role">Postdoc tutor: Giovanni Canestrari</div><div class="cv-inst">Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2019–2023</span><div><div class="cv-role">PhD advisor: Daniele Galli</div><div class="cv-inst">Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2015–2017</span><div><div class="cv-role">Postdoc tutor: Sara Munday</div><div class="cv-inst">Università di Bologna</div></div></div>
+          <div class="cv-entry"><span class="cv-period">2004–2009</span><div><div class="cv-role">PhD advisor: Luca Bussolari</div><div class="cv-inst">Stevens Institute of Technology</div></div></div>
+        </div>
+      </div>
+
+      <!-- COMMITTEE ROLES -->
+      <div class="cv-block reveal">
+        <div class="cv-section-label">University<br>Service</div>
+        <div class="cv-entries">
+          <div class="single-entry"><div class="single-label">Board member, Institute for Advanced Studies, Università di Bologna <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted)">(2016–2022)</span></div></div>
+          <div class="single-entry"><div class="single-label">Member, University Committee for the Evaluation of Research (representing Mathematics) <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted)">(2017–2020)</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="footer-left">Marco Lenci · Università di Bologna<br>Dipartimento di Fisica e Astronomia "Augusto Righi"</div>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+</footer>
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}}),{threshold:.04});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

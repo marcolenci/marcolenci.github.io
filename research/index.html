@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — Marco Lenci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .page-header{padding:7rem 0 4rem;border-bottom:1px solid var(--rule);}
+    .page-header .inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;}
+    .page-title{font-size:clamp(2.8rem,5vw,5rem);font-weight:300;letter-spacing:-.025em;line-height:1.0;}
+    .page-title em{font-style:italic;color:var(--accent);}
+    .page-intro{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--muted);}
+    .interests-prose{font-size:1.05rem;font-weight:300;line-height:1.9;max-width:72ch;}
+    .interests-prose p{margin-bottom:1.4rem;}
+    .interests-prose strong{font-weight:600;}
+    .pub-year-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);padding:.6rem 0;border-bottom:1px solid var(--rule);margin-bottom:0;display:flex;align-items:center;gap:1rem;}
+    .pub-year-label::after{content:'';flex:1;height:1px;background:var(--rule);}
+    .pub-item{display:grid;grid-template-columns:1fr auto;gap:1.5rem;padding:1.3rem 1rem;border-bottom:1px solid rgba(213,205,191,.35);transition:background .18s;align-items:start;}
+    .pub-item:hover{background:var(--bright);}
+    .pub-num{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);margin-right:.8rem;}
+    .pub-title{font-size:.98rem;font-weight:400;line-height:1.5;margin-bottom:.3rem;}
+    .pub-meta{font-size:.83rem;color:var(--muted);font-style:italic;}
+    .pub-links{display:flex;gap:.4rem;flex-shrink:0;padding-top:.1rem;}
+    .badge-pre{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .45rem;background:var(--accent);color:#fff;vertical-align:middle;margin-left:.5rem;}
+    @media(max-width:768px){.page-header .inner{grid-template-columns:1fr;}.pub-item{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Marco Lenci</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Research</a></li>
+    <li><a href="../teaching/index.html">Teaching</a></li>
+    <li><a href="../cv/index.html">CV</a></li>
+    <li><a href="../outreach/index.html">Outreach</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="inner">
+      <div>
+        <span class="sec-eyebrow">Research</span>
+        <h1 class="page-title">Ergodicity,<br>Chaos &amp;<br><em>Transport</em></h1>
+      </div>
+      <p class="page-intro">Dynamical systems, ergodic theory, probability theory, and their applications to physical systems — diffusion, transport, and statistical mechanics. A particular focus on infinite-measure settings and random environments.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="inner">
+      <span class="sec-eyebrow reveal">Scientific Interests</span>
+      <div class="interests-prose reveal">
+        <p>My research sits at the meeting point of <strong>dynamical systems</strong>, <strong>ergodic theory</strong>, and <strong>probability theory</strong>, with a unifying interest in the long-time statistical behaviour of deterministic and stochastic systems that live in infinite or non-compact spaces.</p>
+        <p>A central object in my work is the <strong>billiard</strong>: a point particle bouncing inside a domain. In compact, dispersing billiards (Sinai billiards), ergodicity and mixing are classical results. My focus is on <em>non-compact</em> or <em>aperiodic</em> billiard tables — infinite-step billiards, semi-dispersing cusps, internal-wave billiards in trapezoids, Lorentz gases with infinite horizon — where escape to infinity competes with recurrence, and where standard finite-measure tools fail entirely. A key question is: does the billiard flow return to any region? Is it ergodic? Does it exhibit anomalous diffusion?</p>
+        <p>A second major thread is <strong>infinite-measure ergodic theory</strong>. Standard mixing is not meaningful for systems with infinite invariant measure: correlation functions do not decay to zero in a useful sense. I introduced and developed the notions of <em>global-local mixing</em> and <em>global observables</em> — functions that have a well-defined infinite-volume average — which allow one to formulate and prove physically relevant decorrelation properties for Pomeau–Manneville maps, Boole maps, uniformly expanding Markov maps, random walks, and other infinite-measure systems.</p>
+        <p>A third theme is <strong>random walks in disordered (Lévy) environments</strong>. In these models, the random medium has heavy-tailed gaps, leading to anomalous transport: the walker cannot be described by standard Brownian scaling. With collaborators I have proved quenched and annealed limit theorems, laws of large numbers, and large-deviation results in one dimension, as well as studied Lévy flights on Lévy random media and their connections to multilayer stochastic models of human mobility.</p>
+        <p>More recently I have become an active advocate for <strong>formal mathematics and proof assistants</strong>, particularly Lean 4 and Mathlib. I believe the formalisation of results in ergodic theory and dynamical systems is both feasible and important, and I am directly involved in organising events to promote this direction in Italy and internationally.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="inner">
+      <div class="reveal" style="display:flex;align-items:baseline;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;">
+        <h2 class="sec-title" style="font-size:2rem">Publications</h2>
+        <div style="flex:1;height:1px;background:var(--rule);min-width:20px"></div>
+        <a href="https://scholar.google.it/citations?user=Z6OLx1oAAAAJ" target="_blank" class="btn-sm">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-4283-7488" target="_blank" class="btn-sm">ORCID</a>
+        <a href="https://www.researchgate.net/profile/Marco-Lenci-2" target="_blank" class="btn-sm">ResearchGate</a>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2025 — Preprint</div>
+        <div class="pub-item">
+          <div><span class="pub-num">1.</span><span class="pub-title">Limit theorems and lack thereof for a multilayer random walk mimicking human mobility <span class="badge-pre">preprint</span></span><div class="pub-meta">with A. Bianchi &amp; F. Pène (2025)</div></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2503.01503" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2024 — Preprint</div>
+        <div class="pub-item">
+          <div><span class="pub-num">2.</span><span class="pub-title">Uniformly global observables for 1D maps with an indifferent fixed point <span class="badge-pre">preprint</span></span><div class="pub-meta">with G. Canestrari (2024)</div></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2405.05948" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2023</div>
+        <div class="pub-item">
+          <div><span class="pub-num">3.</span><span class="pub-title">Preface [to the special issue "Advances in Dynamical Systems by the DinAmicI group"]</span><div class="pub-meta">with C. Bonanno — Boll. Unione Mat. Ital. 16 (2023), no. 2, 151–152</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s40574-023-00366-8" class="btn-sm" target="_blank">DOI</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">4.</span><span class="pub-title">Discrete- and continuous-time random walks in 1D Lévy random medium</span><div class="pub-meta">in: From Kinetic Theory to Turbulence Modeling — Springer INdAM Series 51, 2023</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/978-981-19-6462-6_13" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/2112.08822" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">5.</span><span class="pub-title">Internal-wave billiards in trapezoids and similar tables</span><div class="pub-meta">with C. Bonanno &amp; G. Cristadoro — Nonlinearity 36 (2023), no. 2, 1029–1052</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1088/1361-6544/ac98ef" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/2102.01654" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">6.</span><span class="pub-title">Extensions of exact and K-mixing dynamical systems</span><div class="pub-meta">with D. Galli — J. Stat. Phys. 190 (2023), no. 1, Paper No. 21, 15 pp.</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s10955-022-03039-6" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/2203.11822" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2022</div>
+        <div class="pub-item">
+          <div><span class="pub-num">7.</span><span class="pub-title">Maximal escape rate for shifts</span><div class="pub-meta">with C. Bonanno &amp; G. Cristadoro — Discrete Contin. Dyn. Syst. 42 (2022), no. 12, 6007–6029</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.3934/dcds.2022135" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/2112.14248" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2021</div>
+        <div class="pub-item">
+          <div><span class="pub-num">8.</span><span class="pub-title">Limit theorems for Lévy flights on a 1D Lévy random medium</span><div class="pub-meta">with G. Bet, A. Bianchi, E. Magnanini &amp; S. Stivanello — Electron. J. Probab. 26 (2021), article no. 57</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1214/21-EJP626" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/2007.03384" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">9.</span><span class="pub-title">Global observables for RW: law of large numbers</span><div class="pub-meta">with D. Dolgopyat &amp; P. Nándori — Ann. Inst. Henri Poincaré Probab. Stat. 57 (2021), no. 1, 94–115</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1214/20-AIHP1072" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1902.11071" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">10.</span><span class="pub-title">Pomeau–Manneville maps are global-local mixing</span><div class="pub-meta">with C. Bonanno — Discrete Contin. Dyn. Syst. 41 (2021), no. 3, 1051–1069</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.3934/dcds.2020309" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1911.02913" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2020</div>
+        <div class="pub-item">
+          <div><span class="pub-num">11.</span><span class="pub-title">Continuous-time random walk between Lévy-spaced targets in the real line</span><div class="pub-meta">with A. Bianchi &amp; F. Pène — Stochastic Process. Appl. 130 (2020), no. 2, 708–732</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.spa.2019.03.010" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1806.02278" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2016–2018</div>
+        <div class="pub-item">
+          <div><span class="pub-num">12.</span><span class="pub-title">Infinite mixing for one-dimensional maps with an indifferent fixed point</span><div class="pub-meta">with C. Bonanno &amp; P. Giulietti — Nonlinearity 31 (2018), no. 11, 5180–5213</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1088/1361-6544/aadc04" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1708.09369" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">13.</span><span class="pub-title">Pointwise convergence of Birkhoff averages for global observables</span><div class="pub-meta">with S. Munday — Chaos 28 (2018), 083111</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1063/1.5036652" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1804.05359" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">14.</span><span class="pub-title">Global-local mixing for the Boole map</span><div class="pub-meta">with C. Bonanno &amp; P. Giulietti — Chaos Solitons Fractals 111 (2018), 55–61</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.chaos.2018.03.020" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1802.00397" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">15.</span><span class="pub-title">Uniformly expanding Markov maps of the real line: exactness and infinite mixing</span><div class="pub-meta">Discrete Contin. Dyn. Syst. 37 (2017), no. 7, 3867–3903</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.3934/dcds.2017163" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1404.2212" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">16.</span><span class="pub-title">Random walks in a one-dimensional Lévy random environment</span><div class="pub-meta">with A. Bianchi, G. Cristadoro &amp; M. Ligabò — J. Stat. Phys. 163 (2016), no. 1, 22–40</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s10955-016-1469-0" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1411.0586" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">17.</span><span class="pub-title">Characterization of DNA methylation as a function of biological complexity via dinucleotide inter-distances</span><div class="pub-meta">with G. Paci et al. — Phil. Trans. R. Soc. A (2016) 20150227</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1098/rsta.2015.0227" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1511.08445" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">18.</span><span class="pub-title">A simple proof of the exactness of expanding maps of the interval with an indifferent fixed point</span><div class="pub-meta">Chaos Solitons Fractals 82 (2016), 148–154</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.chaos.2015.11.024" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1511.05906" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2014–2015</div>
+        <div class="pub-item">
+          <div><span class="pub-num">19.</span><span class="pub-title">Lévy walks on lattices as multi-state processes</span><div class="pub-meta">with G. Cristadoro, T. Gilbert &amp; D. P. Sanders — J. Stat. Mech. (2015), P05012</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1088/1742-5468/2015/05/P05012" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1501.05216" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">20.</span><span class="pub-title">Transport properties of Lévy walks: an analysis in terms of multistate processes</span><div class="pub-meta">with G. Cristadoro, T. Gilbert &amp; D. P. Sanders — Europhys. Lett. 108 (2014), no. 5, 50002</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1209/0295-5075/108/50002" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1407.0227" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">21.</span><span class="pub-title">Machta–Zwanzig regime of anomalous diffusion in infinite-horizon billiards</span><div class="pub-meta">with G. Cristadoro, T. Gilbert &amp; D. P. Sanders — Phys. Rev. E 90 (2014), 050102(R)</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1103/PhysRevE.90.050102" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1408.0349" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">22.</span><span class="pub-title">Measuring logarithmic corrections to normal diffusion in infinite-horizon billiards</span><div class="pub-meta">with G. Cristadoro, T. Gilbert &amp; D. P. Sanders — Phys. Rev. E 90 (2014), 022106</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1103/PhysRevE.90.022106" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1405.0975" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2010–2013</div>
+        <div class="pub-item">
+          <div><span class="pub-num">23.</span><span class="pub-title">Exactness, K-property and infinite mixing</span><div class="pub-meta">Publ. Mat. Urug. 14 (2013), 159–170</div></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/1212.4099" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">24.</span><span class="pub-title">Random walks in random environments without ellipticity</span><div class="pub-meta">Stochastic Process. Appl. 123 (2013), no. 5, 1750–1764</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.spa.2013.01.007" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1106.6008" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">25.</span><span class="pub-title">Infinite-volume mixing for dynamical systems preserving an infinite measure</span><div class="pub-meta">Procedia IUTAM 5 (2012), 204–219</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.piutam.2012.06.028" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1202.6391" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">26.</span><span class="pub-title">Infinite-horizon Lorentz tubes and gases: recurrence and ergodic properties</span><div class="pub-meta">with S. Troubetzkoy — Physica D 240 (2011), no. 19, 1510–1515</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.physd.2011.06.020" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1103.6110" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">27.</span><span class="pub-title">Recurrence and higher ergodic properties for quenched random Lorentz tubes in dimension bigger than two</span><div class="pub-meta">with M. Seri, M. Degli Esposti &amp; G. Cristadoro — J. Stat. Phys. 144 (2011), no. 1, 124–138</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s10955-011-0244-5" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/1011.6414" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">28.</span><span class="pub-title">Recurrence for quenched random Lorentz tubes</span><div class="pub-meta">with G. Cristadoro &amp; M. Seri — Chaos 20 (2010), 023115</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1063/1.3405290" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/0909.3069" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">29.</span><span class="pub-title">On infinite-volume mixing</span><div class="pub-meta">Comm. Math. Phys. 298 (2010), no. 2, 485–514</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s00220-010-1043-6" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/0906.4059" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">2005–2009</div>
+        <div class="pub-item">
+          <div><span class="pub-num">30.</span><span class="pub-title">Central Limit Theorem and recurrence for random walks in bistochastic random environments</span><div class="pub-meta">J. Math. Phys. 49 (2008), no. 12, 125213</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1063/1.3005226" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/0810.2324" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">31.</span><span class="pub-title">Hyperbolic billiards with nearly flat focusing boundaries. I</span><div class="pub-meta">with L. Bussolari — Physica D 237 (2008), no. 18, 2272–2281</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.physd.2008.02.006" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/0712.3802" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">32.</span><span class="pub-title">Recurrence for persistent random walks in two dimensions</span><div class="pub-meta">Stoch. Dyn. 7 (2007), no. 1, 53–74</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1142/S0219493707001937" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/math/0507411" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">33.</span><span class="pub-title">Typicality of recurrence for Lorentz gases</span><div class="pub-meta">Ergodic Theory Dynam. Systems 26 (2006), no. 3, 799–820</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1017/S0143385706000022" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/math/0410355" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">34.</span><span class="pub-title">Large deviations in quantum lattice systems: one-phase region</span><div class="pub-meta">with L. Rey-Bellet — J. Stat. Phys. 119 (2005), no. 3–4, 715–746</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s10955-005-3015-3" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/math-ph/0406065" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">1996–2004</div>
+        <div class="pub-item">
+          <div><span class="pub-num">35.</span><span class="pub-title">Localization in infinite billiards: a comparison between quantum and classical ergodicity</span><div class="pub-meta">with S. Graffi — J. Statist. Phys. 116 (2004), no. 1–4, 821–830</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1023/B:JOSS.0000037218.05161.f3" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/math-ph/0306075" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">36.</span><span class="pub-title">Aperiodic Lorentz gas: recurrence and ergodicity</span><div class="pub-meta">Ergodic Theory Dynam. Systems 23 (2003), no. 3, 869–883</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1017/S0143385702001529" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/math/0206299" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">37.</span><span class="pub-title">Semi-dispersing billiards with an infinite cusp. I &amp; II</span><div class="pub-meta">Comm. Math. Phys. 230 (2002) / Chaos 13 (2003)</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1007/s00220-002-0710-7" class="btn-sm" target="_blank">DOI I</a><a href="https://doi.org/10.1063/1.1539802" class="btn-sm" target="_blank">DOI II</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">38.</span><span class="pub-title">Escape orbits and ergodicity in infinite step billiards</span><div class="pub-meta">with M. Degli Esposti &amp; G. Del Magno — Nonlinearity 13 (2000), no. 4, 1275–1292</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1088/0951-7715/13/4/316" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/chao-dyn/9906017" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">39.</span><span class="pub-title">Large deviations for ideal quantum systems</span><div class="pub-meta">with J. L. Lebowitz &amp; H. Spohn — J. Math. Phys. 41 (2000), no. 3, 1224–1243</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1063/1.533185" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/math-ph/9906014" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">40.</span><span class="pub-title">An infinite step billiard</span><div class="pub-meta">with M. Degli Esposti &amp; G. Del Magno — Nonlinearity 11 (1998), no. 4, 991–1013</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1088/0951-7715/11/4/013" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/chao-dyn/9709006" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">41.</span><span class="pub-title">Ergodic properties of the quantum ideal gas in the Maxwell–Boltzmann statistics</span><div class="pub-meta">J. Math. Phys. 37 (1996), no. 10, 5136–5157</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1063/1.531684" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/chao-dyn/9605005" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-num">42.</span><span class="pub-title">Escape orbits for non-compact flat billiards</span><div class="pub-meta">Chaos 6 (1996), no. 3, 428–431</div></div>
+          <div class="pub-links"><a href="https://doi.org/10.1063/1.166173" class="btn-sm" target="_blank">DOI</a><a href="https://arxiv.org/abs/chao-dyn/9602020" class="btn-sm arxiv" target="_blank">arXiv</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pub-year-label">Doctoral Theses</div>
+        <div class="pub-item">
+          <div><span class="pub-title">Classical Billiards and Quantum Large Deviations</span><div class="pub-meta">Ph.D. Thesis, Rutgers University, 1999. Dissertation Director: Joel L. Lebowitz</div></div>
+          <div class="pub-links"><a href="http://www.dm.unibo.it/~lenci/research/papers/thesis.pdf" class="btn-sm" target="_blank">PDF</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-title">Caos quantistico cinematico (Kinematic Quantum Chaos)</span><div class="pub-meta">Ph.D. Thesis, Università di Bologna, 1998. Advisor: S. Graffi (in Italian)</div></div>
+          <div class="pub-links"><a href="http://www.dm.unibo.it/~lenci/research/papers/tesi.pdf" class="btn-sm" target="_blank">PDF</a></div>
+        </div>
+        <div class="pub-item">
+          <div><span class="pub-title">Sulla nozione quantistica di ergodicità</span><div class="pub-meta">Tesi di Laurea, Università di Bologna, 1993 (in Italian)</div></div>
+          <div class="pub-links"><a href="http://www.dm.unibo.it/~lenci/research/papers/tesi-laurea.pdf" class="btn-sm" target="_blank">PDF</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="footer-left">Marco Lenci · Università di Bologna<br>Dipartimento di Fisica e Astronomia "Augusto Righi"</div>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+</footer>
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}}),{threshold:.04});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

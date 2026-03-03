@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco Lenci — Mathematical Physicist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 4rem 5rem 3rem;
+      border-right: 1px solid var(--rule);
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp .7s .1s ease forwards;
+    }
+    .hero-name {
+      font-size: clamp(3.5rem, 5.5vw, 6rem);
+      font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
+      margin-bottom: .8rem;
+      opacity: 0; animation: fadeUp .7s .25s ease forwards;
+    }
+    .hero-name em { font-style: italic; color: var(--accent); }
+    .hero-position {
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      letter-spacing: .04em; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp .7s .4s ease forwards;
+    }
+    .hero-desc {
+      font-size: 1.08rem; font-weight: 300; line-height: 1.85;
+      max-width: 46ch; margin-bottom: 1.6rem;
+      opacity: 0; animation: fadeUp .7s .55s ease forwards;
+    }
+    .hero-desc2 {
+      font-size: 1.08rem; font-weight: 300; line-height: 1.85;
+      max-width: 46ch; margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp .7s .65s ease forwards;
+      color: var(--muted);
+    }
+    .hero-lean {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid rgba(42,95,168,.3);
+      padding: .4rem .9rem; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp .7s .72s ease forwards;
+    }
+    .hero-lean span { display: inline-block; width: 6px; height: 6px; background: var(--accent2); border-radius: 50%; }
+    .hero-ctas {
+      display: flex; gap: 1.2rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .7s .85s ease forwards;
+    }
+    /* ── HERO RIGHT: canvas ── */
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--dark);
+    }
+    #heroCanvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+    }
+    .canvas-label {
+      position: absolute; bottom: 1.5rem; left: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .58rem; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      z-index: 10;
+    }
+    .canvas-toggle {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      display: flex; gap: .5rem; z-index: 10;
+    }
+    .ctg-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .55rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .7rem; border: 1px solid rgba(255,255,255,.2);
+      background: transparent; color: rgba(255,255,255,.4);
+      cursor: pointer; transition: all .2s;
+    }
+    .ctg-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── INTERESTS ── */
+    .interests-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+    }
+    .int-card {
+      background: var(--bright); border: 1px solid var(--rule);
+      padding: 2.2rem; position: relative; overflow: hidden;
+      transition: transform .25s;
+    }
+    .int-card:hover { transform: translateY(-3px); }
+    .int-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--accent);
+      transform: scaleX(0); transition: transform .25s;
+    }
+    .int-card:hover::after { transform: scaleX(1); }
+    .int-glyph { font-size: 1.6rem; margin-bottom: 1rem; display: block; }
+    .int-title { font-size: 1.2rem; font-weight: 400; margin-bottom: .6rem; }
+    .int-desc { font-size: .92rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+
+    /* ── LEAN BLOCK ── */
+    .lean-block {
+      background: var(--dark);
+      padding: 4rem 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .lean-text-side {}
+    .lean-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 1.2rem; display: block;
+    }
+    .lean-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: #fff; margin-bottom: 1.5rem; letter-spacing: -.01em; }
+    .lean-title em { font-style: italic; color: var(--accent2); }
+    .lean-desc { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 1.5rem; }
+    .lean-code {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-left: 3px solid var(--accent2);
+      padding: 1.5rem 1.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem; line-height: 1.9;
+      color: rgba(255,255,255,.7);
+    }
+    .lean-code .kw { color: #7eb0e8; }
+    .lean-code .cm { color: rgba(255,255,255,.3); font-style: italic; }
+    .lean-code .id { color: #e8c87e; }
+
+    /* ── SELECTED PAPERS ── */
+    .paper-row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 2rem; padding: 1.5rem 1.5rem;
+      border-bottom: 1px solid rgba(213,205,191,.45);
+      transition: background .18s; align-items: start;
+      text-decoration: none; color: inherit;
+    }
+    .paper-row:hover { background: var(--bright); }
+    .paper-title { font-size: 1rem; font-weight: 400; line-height: 1.5; margin-bottom: .35rem; }
+    .paper-meta { font-size: .84rem; color: var(--muted); font-style: italic; }
+    .paper-links { display: flex; gap: .5rem; padding-top: .1rem; flex-shrink: 0; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vw; }
+      .hero-left { padding: 4rem 1.5rem; }
+      .lean-block { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+      .paper-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Marco Lenci</a>
+  <ul class="nav-links">
+    <li><a href="research/index.html">Research</a></li>
+    <li><a href="teaching/index.html">Teaching</a></li>
+    <li><a href="cv/index.html">CV</a></li>
+    <li><a href="outreach/index.html">Outreach</a></li>
+    <li><a href="contact/index.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <span class="hero-tag">Full Professor · Università di Bologna</span>
+      <h1 class="hero-name">Marco<br><em>Lenci</em></h1>
+      <p class="hero-position">Mathematical Physics · Dept. of Physics &amp; Astronomy</p>
+      <p class="hero-desc">
+        I am a mathematical physicist working at the intersection of dynamical systems, ergodic theory, and probability. My research centres on the long-time behaviour of systems that are chaotic, non-compact, or set in random environments — regimes where classical methods break down and new ideas are needed. My main areas include <em>infinite-measure ergodic theory</em>, billiard dynamics, and random walks in disordered (Lévy) media.
+      </p>
+      <p class="hero-desc2">
+        A recurring theme across my work is the question of <em>mixing and transport</em>: how does information — or a physical particle — spread through an infinite or aperiodic system over time? This question connects pure mathematics to concrete physics: heat conduction, anomalous diffusion, and the statistical properties of gases.
+      </p>
+      <div class="hero-lean">
+        <span></span>
+        Lean4 advocate &amp; amateur formal mathematician
+      </div>
+      <div class="hero-ctas">
+        <a href="research/index.html" class="btn btn-dark">Research &amp; Publications</a>
+        <a href="cv/index.html" class="btn btn-outline">Curriculum Vitae</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="canvas-toggle">
+        <button class="ctg-btn on" id="btn-billiard" onclick="setMode('billiard')">Billiard</button>
+        <button class="ctg-btn" id="btn-rw" onclick="setMode('rw')">Lévy Walk</button>
+      </div>
+      <canvas id="heroCanvas"></canvas>
+      <div class="canvas-label" id="canvas-label">Infinite-step billiard simulation</div>
+    </div>
+  </div>
+
+  <!-- RESEARCH INTERESTS -->
+  <section>
+    <div class="inner">
+      <div class="reveal" style="margin-bottom:3rem">
+        <span class="sec-eyebrow">Research interests</span>
+        <h2 class="sec-title">Where chaos<br>meets <em>rigour</em></h2>
+      </div>
+      <div class="interests-grid">
+        <div class="int-card reveal">
+          <span class="int-glyph">⟳</span>
+          <h3 class="int-title">Infinite Ergodic Theory</h3>
+          <p class="int-desc">Classical ergodic theory assumes finite invariant measures. My work extends mixing and recurrence theory to systems with infinite measure — the natural setting for many physical models of transport and diffusion.</p>
+        </div>
+        <div class="int-card reveal">
+          <span class="int-glyph">⬡</span>
+          <h3 class="int-title">Billiards &amp; Lorentz Gases</h3>
+          <p class="int-desc">Non-compact billiard tables — including infinite-step, semi-dispersing, and cusp billiards — provide geometric models for particle transport. I study their ergodicity, recurrence, hyperbolicity, and anomalous diffusion.</p>
+        </div>
+        <div class="int-card reveal">
+          <span class="int-glyph">≋</span>
+          <h3 class="int-title">Random Walks in Lévy Media</h3>
+          <p class="int-desc">Random environments whose jump lengths follow heavy-tailed (Lévy) distributions produce anomalous transport. I prove limit theorems — laws of large numbers, CLTs, large deviations — for these models in 1D and beyond.</p>
+        </div>
+        <div class="int-card reveal">
+          <span class="int-glyph">∿</span>
+          <h3 class="int-title">Mixing &amp; Global Observables</h3>
+          <p class="int-desc">What does it mean for an infinite system to "mix"? I introduced the framework of global-local mixing and global observables, which gives a physically meaningful notion of decorrelation for spatially extended systems.</p>
+        </div>
+        <div class="int-card reveal">
+          <span class="int-glyph">⟨ψ|</span>
+          <h3 class="int-title">Quantum &amp; Statistical Mechanics</h3>
+          <p class="int-desc">Early work on the ergodic properties of quantum ideal gases, large deviations in quantum lattice systems, and connections between classical billiard geometry and quantum ergodicity (Schnirelman theorem).</p>
+        </div>
+        <div class="int-card reveal">
+          <span class="int-glyph">#check</span>
+          <h3 class="int-title">Formal Mathematics &amp; Lean</h3>
+          <p class="int-desc">I am an advocate of computer-verified proofs and an amateur Lean 4 programmer. I co-organised the 2024 workshop "Computer-verified proofs: 48 hours in Rome" and the 2025 "ItaLean" conference in Bologna.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAN BLOCK -->
+  <div class="lean-block reveal">
+    <div class="lean-text-side">
+      <span class="lean-eyebrow">Lean 4 &amp; Formal Proofs</span>
+      <h2 class="lean-title">Mathematics<br>you can <em>verify</em></h2>
+      <p class="lean-desc">Beyond research and teaching, I am an active advocate for the proof assistant <strong style="color:#fff">Lean 4</strong> and its mathematical library Mathlib. I believe that computer-verified proofs represent a genuine shift in how mathematics can be done and communicated — making results checkable, modular, and reusable.</p>
+      <p class="lean-desc">As an amateur Lean programmer, I explore the formalisation of results in ergodic theory and dynamical systems. I co-organised the 2024 workshop "48 hours in Rome" and the December 2025 conference <em>ItaLean — Bridging Formal Mathematics and AI</em> in Bologna.</p>
+    </div>
+    <div>
+      <div class="lean-code">
+        <span class="cm">-- Lean 4 / Mathlib flavour</span><br>
+        <span class="kw">theorem</span> <span class="id">ergodic_of_mixing</span><br>
+        &nbsp;&nbsp;{α : <span class="kw">Type</span>*} [<span class="id">MeasureSpace</span> α]<br>
+        &nbsp;&nbsp;(T : α → α)<br>
+        &nbsp;&nbsp;(hT : <span class="id">Mixing</span> T) :<br>
+        &nbsp;&nbsp;<span class="id">Ergodic</span> T := <span class="kw">by</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="cm">-- mixing implies ergodicity</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="id">exact</span> hT.<span class="id">toErgodic</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELECTED PUBLICATIONS -->
+  <section>
+    <div class="inner">
+      <div class="reveal" style="display:flex;align-items:baseline;gap:2rem;margin-bottom:3rem;">
+        <h2 class="sec-title" style="font-size:2rem">Selected Recent Works</h2>
+        <div style="flex:1;height:1px;background:var(--rule)"></div>
+      </div>
+      <div class="reveal">
+        <div class="paper-row">
+          <div>
+            <div class="paper-title">Limit theorems and lack thereof for a multilayer random walk mimicking human mobility</div>
+            <div class="paper-meta">with A. Bianchi &amp; F. Pène — preprint (2025)</div>
+          </div>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2503.01503" class="btn-sm arxiv" target="_blank">arXiv</a>
+          </div>
+        </div>
+        <div class="paper-row">
+          <div>
+            <div class="paper-title">Uniformly global observables for 1D maps with an indifferent fixed point</div>
+            <div class="paper-meta">with G. Canestrari — preprint (2024)</div>
+          </div>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2405.05948" class="btn-sm arxiv" target="_blank">arXiv</a>
+          </div>
+        </div>
+        <div class="paper-row">
+          <div>
+            <div class="paper-title">Internal-wave billiards in trapezoids and similar tables</div>
+            <div class="paper-meta">with C. Bonanno &amp; G. Cristadoro — Nonlinearity 36 (2023)</div>
+          </div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.1088/1361-6544/ac98ef" class="btn-sm" target="_blank">DOI</a>
+            <a href="https://arxiv.org/abs/2102.01654" class="btn-sm arxiv" target="_blank">arXiv</a>
+          </div>
+        </div>
+        <div class="paper-row">
+          <div>
+            <div class="paper-title">Limit theorems for Lévy flights on a 1D Lévy random medium</div>
+            <div class="paper-meta">with G. Bet, A. Bianchi, E. Magnanini &amp; S. Stivanello — Electron. J. Probab. 26 (2021)</div>
+          </div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.1214/21-EJP626" class="btn-sm" target="_blank">DOI</a>
+            <a href="https://arxiv.org/abs/2007.03384" class="btn-sm arxiv" target="_blank">arXiv</a>
+          </div>
+        </div>
+        <div class="paper-row">
+          <div>
+            <div class="paper-title">On infinite-volume mixing</div>
+            <div class="paper-meta">Comm. Math. Phys. 298 (2010) — A foundational paper introducing global-local mixing</div>
+          </div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.1007/s00220-010-1043-6" class="btn-sm" target="_blank">DOI</a>
+            <a href="https://arxiv.org/abs/0906.4059" class="btn-sm arxiv" target="_blank">arXiv</a>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:2.5rem;text-align:center">
+        <a href="research/index.html" class="btn btn-dark">Full publication list</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-left">
+    Marco Lenci · Università di Bologna<br>
+    Dipartimento di Fisica e Astronomia "Augusto Righi" · INFN Bologna
+  </div>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+</footer>
+
+<script>
+// ── SCROLL REVEAL ──
+const obs = new IntersectionObserver(es => es.forEach((e,i) => {
+  if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i*70); obs.unobserve(e.target); }
+}), { threshold: .08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── CANVAS SIMULATION ──
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+let mode = 'billiard';
+let animId;
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-billiard').className = 'ctg-btn' + (m==='billiard'?' on':'');
+  document.getElementById('btn-rw').className = 'ctg-btn' + (m==='rw'?' on':'');
+  document.getElementById('canvas-label').textContent = m==='billiard'
+    ? 'Infinite-step billiard simulation'
+    : 'Random walk in a 1D Lévy random environment';
+  cancelAnimationFrame(animId);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  if (m==='billiard') runBilliard();
+  else runRW();
+}
+
+function resize() {
+  const r = canvas.parentElement.getBoundingClientRect();
+  canvas.width = r.width; canvas.height = r.height;
+}
+window.addEventListener('resize', () => { resize(); cancelAnimationFrame(animId); ctx.clearRect(0,0,canvas.width,canvas.height); if(mode==='billiard') runBilliard(); else runRW(); });
+resize();
+
+// ── BILLIARD ──
+function runBilliard() {
+  const W = canvas.width, H = canvas.height;
+  const balls = [];
+  const TRAIL = 220;
+  const cols = ['rgba(184,52,24,', 'rgba(42,95,168,', 'rgba(200,180,120,'];
+
+  // Boundary: step-like floor
+  function getFloorY(x) {
+    const seg = Math.floor(x / (W/8));
+    return H * (.55 + (seg % 4) * .07);
+  }
+
+  for (let b = 0; b < 3; b++) {
+    const ang = (.3 + b*.4) * Math.PI;
+    balls.push({
+      x: W * (.2 + b*.25), y: H * .3,
+      vx: Math.cos(ang)*3.2, vy: Math.sin(ang)*2.8,
+      trail: [], col: cols[b]
+    });
+  }
+
+  function step() {
+    ctx.fillStyle = 'rgba(26,23,20,0.18)';
+    ctx.fillRect(0,0,W,H);
+
+    // Draw step billiard boundary
+    ctx.beginPath(); ctx.moveTo(0, H);
+    for (let x = 0; x <= W; x+=2) { ctx.lineTo(x, getFloorY(x)); }
+    ctx.lineTo(W, H); ctx.closePath();
+    ctx.fillStyle = 'rgba(255,255,255,0.04)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = 1; ctx.stroke();
+
+    // Top wall line
+    ctx.beginPath(); ctx.moveTo(0, H*.08); ctx.lineTo(W, H*.08);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.stroke();
+
+    for (const ball of balls) {
+      ball.vy += 0.04; // gentle gravity
+      ball.x += ball.vx; ball.y += ball.vy;
+
+      // Wall bounces
+      if (ball.x < 10) { ball.x = 10; ball.vx = Math.abs(ball.vx); }
+      if (ball.x > W-10) { ball.x = W-10; ball.vx = -Math.abs(ball.vx); }
+      if (ball.y < H*.08) { ball.y = H*.08; ball.vy = Math.abs(ball.vy)*0.9; }
+
+      // Step floor bounce
+      const fy = getFloorY(ball.x);
+      if (ball.y >= fy - 6) {
+        ball.y = fy - 6;
+        ball.vy = -Math.abs(ball.vy) * .88;
+        ball.vx *= .995;
+        if (Math.abs(ball.vy) < .5) ball.vy = -(1.5 + Math.random()*2);
+      }
+
+      ball.trail.push({x: ball.x, y: ball.y});
+      if (ball.trail.length > TRAIL) ball.trail.shift();
+
+      // Draw trail
+      for (let i = 1; i < ball.trail.length; i++) {
+        const a = i / ball.trail.length;
+        ctx.beginPath();
+        ctx.moveTo(ball.trail[i-1].x, ball.trail[i-1].y);
+        ctx.lineTo(ball.trail[i].x, ball.trail[i].y);
+        ctx.strokeStyle = ball.col + a*.7 + ')';
+        ctx.lineWidth = 1.2 * a;
+        ctx.stroke();
+      }
+
+      // Ball
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, 4, 0, Math.PI*2);
+      ctx.fillStyle = ball.col + '1)';
+      ctx.fill();
+    }
+    animId = requestAnimationFrame(step);
+  }
+
+  // Dark bg
+  ctx.fillStyle = '#1a1714';
+  ctx.fillRect(0,0,W,H);
+  step();
+}
+
+// ── LÉVY RANDOM WALK ──
+function runRW() {
+  const W = canvas.width, H = canvas.height;
+  const CY = H / 2;
+  let walkers = [];
+  // Random Lévy environment: scatter points with heavy-tailed gaps
+  const envPts = [];
+  let ex = 0;
+  while (ex < W) {
+    ex += 5 + Math.pow(Math.random(), -1.5) * 8;
+    envPts.push(ex);
+  }
+
+  for (let w = 0; w < 4; w++) {
+    walkers.push({
+      x: W/2,
+      history: [{x: W/2, y: CY + (w-1.5)*30}],
+      vel: (Math.random()>.5?1:-1) * (1+Math.random()*2),
+      steps: 0,
+      maxSteps: 30 + Math.floor(Math.random()*80),
+      yOff: (w-1.5)*30,
+      col: ['rgba(184,52,24,','rgba(42,95,168,','rgba(180,160,80,','rgba(80,160,100,'][w]
+    });
+  }
+
+  let t = 0;
+  function step() {
+    ctx.fillStyle = 'rgba(26,23,20,0.15)';
+    ctx.fillRect(0,0,W,H);
+
+    // Draw environment markers
+    for (const ep of envPts) {
+      if (ep < 0 || ep > W) continue;
+      ctx.beginPath();
+      ctx.moveTo(ep, CY - 60); ctx.lineTo(ep, CY + 60);
+      ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+      ctx.lineWidth = 1; ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(ep, CY, 3, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.12)';
+      ctx.fill();
+    }
+
+    // Axis
+    ctx.beginPath(); ctx.moveTo(0, CY); ctx.lineTo(W, CY);
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1; ctx.stroke();
+
+    for (const w of walkers) {
+      w.steps++;
+      if (w.steps >= w.maxSteps) {
+        w.steps = 0;
+        w.vel = (Math.random()>.5?1:-1) * (2 + Math.pow(Math.random(),-1.2)*3);
+        w.maxSteps = 20 + Math.floor(Math.random()*100);
+      }
+      w.x += w.vel * .7;
+      // Bounce at walls
+      if (w.x < 20) { w.x = 20; w.vel = Math.abs(w.vel); }
+      if (w.x > W-20) { w.x = W-20; w.vel = -Math.abs(w.vel); }
+
+      const py = CY + w.yOff + Math.sin(t*.04 + w.yOff) * 5;
+      w.history.push({x: w.x, y: py});
+      if (w.history.length > 300) w.history.shift();
+
+      // Trail
+      ctx.beginPath();
+      for (let i = 0; i < w.history.length; i++) {
+        const a = i / w.history.length;
+        if (i===0) ctx.moveTo(w.history[i].x, w.history[i].y);
+        else ctx.lineTo(w.history[i].x, w.history[i].y);
+      }
+      ctx.strokeStyle = w.col + '.55)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Head
+      ctx.beginPath();
+      ctx.arc(w.x, py, 5, 0, Math.PI*2);
+      ctx.fillStyle = w.col + '1)';
+      ctx.fill();
+    }
+    t++;
+    animId = requestAnimationFrame(step);
+  }
+  ctx.fillStyle = '#1a1714'; ctx.fillRect(0,0,W,H);
+  step();
+}
+
+runBilliard();
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outreach — Marco Lenci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .page-header{padding:7rem 0 4rem;border-bottom:1px solid var(--rule);}
+    .page-title{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;letter-spacing:-.025em;line-height:1.0;}
+    .page-title em{font-style:italic;color:var(--accent);}
+
+    .out-card{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;padding:2.5rem;background:var(--bright);border:1px solid var(--rule);margin-bottom:2px;transition:transform .2s;}
+    .out-card:hover{transform:translateY(-2px);}
+    .out-year{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--accent);letter-spacing:.1em;width:50px;padding-top:.3rem;}
+    .out-type{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+    .out-title{font-size:1.1rem;font-weight:400;margin-bottom:.5rem;line-height:1.4;}
+    .out-desc{font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:.8rem;}
+    .out-links{display:flex;gap:.6rem;flex-wrap:wrap;}
+
+    /* Book highlight */
+    .book-card{background:var(--dark);color:var(--paper);padding:3rem;border-left:4px solid var(--accent);margin-bottom:2px;}
+    .book-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+    .book-title{font-size:1.8rem;font-weight:300;letter-spacing:-.01em;margin-bottom:.8rem;color:#fff;}
+    .book-title em{font-style:italic;color:var(--accent);}
+    .book-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.55);margin-bottom:1.5rem;}
+    .book-desc{font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.7);max-width:60ch;}
+    .book-links{display:flex;gap:.8rem;margin-top:1.5rem;flex-wrap:wrap;}
+
+    .lean-out-block{background:var(--bright);border:1px solid var(--rule);border-left:3px solid var(--accent2);padding:2.5rem;margin-bottom:2px;}
+    .lean-out-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:.8rem;}
+    .lean-out-title{font-size:1.2rem;font-weight:400;margin-bottom:.8rem;}
+    .lean-out-desc{font-size:.95rem;font-weight:300;color:var(--muted);line-height:1.75;}
+
+    @media(max-width:768px){.out-card{grid-template-columns:1fr;gap:1rem;}.out-year{width:auto;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Marco Lenci</a>
+  <ul class="nav-links">
+    <li><a href="../research/index.html">Research</a></li>
+    <li><a href="../teaching/index.html">Teaching</a></li>
+    <li><a href="../cv/index.html">CV</a></li>
+    <li><a href="index.html" class="active">Outreach</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="inner">
+      <span class="sec-eyebrow">Outreach</span>
+      <h1 class="page-title">Mathematics<br>for <em>Everyone</em></h1>
+      <p style="font-size:1.05rem;font-weight:300;color:var(--muted);margin-top:1.5rem;max-width:55ch;line-height:1.85;">I believe that mathematics is not the private property of mathematicians. Here are some of the ways I try to share its beauty and importance with a wider audience.</p>
+    </div>
+  </div>
+
+  <!-- BOOK HIGHLIGHT -->
+  <section>
+    <div class="inner">
+      <span class="sec-eyebrow reveal">Book</span>
+
+      <div class="book-card reveal">
+        <div class="book-eyebrow">Rivoluzioni Matematiche · Vol. 35 · Le Scienze / Springer Nature Italia</div>
+        <h2 class="book-title"><em>Il teorema ergodico</em></h2>
+        <div class="book-sub">Published August 2025, distributed with Le Scienze magazine</div>
+        <p class="book-desc">A non-technical book for the general public presenting the ergodic theorem — one of the most profound and surprising results in modern mathematics. The theorem says, in essence, that for many dynamical systems, time averages equal space averages: a gas in equilibrium eventually "visits" all its possible states proportionally. The book traces the theorem's history from Boltzmann's hypothesis to its rigorous proof by Birkhoff and von Neumann, and illuminates its deep connections to probability, physics, and our understanding of irreversibility and entropy.</p>
+        <div class="book-links">
+          <a href="https://www.lescienze.it/collane/teoremi/2025/07/29/news/probabilita_e_termodinamica-19713699/" class="btn btn-dark" target="_blank" style="font-size:.6rem">Promo page on Le Scienze ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAN / FORMAL MATH OUTREACH -->
+  <section>
+    <div class="inner">
+      <span class="sec-eyebrow reveal">Formal Mathematics &amp; Lean</span>
+
+      <div class="lean-out-block reveal">
+        <div class="lean-out-eyebrow">Conference co-organiser</div>
+        <div class="lean-out-title">ItaLean 2025 — "Bridging Formal Mathematics and AI"</div>
+        <div class="lean-out-desc">December 9–12, 2025 · Università di Bologna. A conference bringing together Italian and international mathematicians, computer scientists, and AI researchers around the Lean proof assistant and the future of computer-verified mathematics. Aimed at both specialists and curious newcomers to formal methods.</div>
+      </div>
+
+      <div class="lean-out-block reveal">
+        <div class="lean-out-eyebrow">Workshop co-organiser</div>
+        <div class="lean-out-title">Computer-verified proofs: 48 hours in Rome</div>
+        <div class="lean-out-desc">January 24–26, 2024 · Università di Roma Tor Vergata. An intensive two-day workshop introducing mathematicians to formal proof-writing in Lean 4 and Mathlib. Participants worked on formalising results from their own fields of research.</div>
+      </div>
+
+      <div class="lean-out-block reveal">
+        <div class="lean-out-eyebrow">Scientific committee · INdAM Meeting</div>
+        <div class="lean-out-title">Lean for the curious mathematician</div>
+        <div class="lean-out-desc">September 7–11, 2026 · Palazzone di Cortona, Cortona. INdAM Meeting for Italian and international mathematicians curious about the Lean ecosystem and the growing Mathlib library. Member of the Scientific Committee.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES & BLOG POSTS -->
+  <section>
+    <div class="inner">
+      <span class="sec-eyebrow reveal">Articles &amp; Blog Posts</span>
+
+      <div class="reveal">
+        <div class="out-card">
+          <span class="out-year">2022</span>
+          <div>
+            <div class="out-type">Essay · Book chapter</div>
+            <div class="out-title">Metodi a confronto: Didattica Universitaria in USA e in Italia</div>
+            <div class="out-desc">A reflective essay comparing university teaching methods in the United States and Italy — differences in expectations, assessment styles, classroom culture, and the role of the lecturer. Published in the proceedings of a 2021 conference on pedagogy.</div>
+            <div class="out-links">
+              <a href="https://www.amazon.it/dp/B0B5NH96MB/ref=cm_sw_r_awdo_AX148FG2SA0BBDTXX90K_1" target="_blank" class="btn-sm">Amazon (in Italian)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="out-card">
+          <span class="out-year">2022</span>
+          <div>
+            <div class="out-type">Blog post · ParliamoneOra</div>
+            <div class="out-title">Scienza e Cultura: impressioni</div>
+            <div class="out-desc">Reflections on the relationship between science and culture — how scientific thinking shapes culture, why the two are not separate realms, and what is lost when they are treated as such.</div>
+            <div class="out-links">
+              <a href="http://www.parliamoneora.it/scienza-e-cultura-impressioni/" target="_blank" class="btn-sm">Read online (in Italian)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="out-card">
+          <span class="out-year">2020</span>
+          <div>
+            <div class="out-type">Popular article · Zanichelli / Aula di Scienze</div>
+            <div class="out-title">La matematica del distanziamento</div>
+            <div class="out-desc">Written during the COVID-19 pandemic for a general audience, this article explains the mathematical models behind social distancing recommendations — from epidemiological models to geometric tiling problems (the Lagrange–Thue–Fejes Tóth theorem). Includes supplementary material with proofs and problems for the curious reader.</div>
+            <div class="out-links">
+              <a href="https://aulascienze.scuola.zanichelli.it/come-te-lo-spiego/2020/05/15/la-matematica-del-distanziamento/" target="_blank" class="btn-sm">Read online (in Italian)</a>
+              <a href="https://aulascienze.scuola.zanichelli.it/wp-content/uploads/2020/05/Dimosrazione_teorema_Lagrange_Thue_Fejes_Toth.pdf" target="_blank" class="btn-sm">Supplementary material (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="out-card">
+          <span class="out-year">2020</span>
+          <div>
+            <div class="out-type">Blog post · ParliamoneOra</div>
+            <div class="out-title">Chi ha paura della matematica?</div>
+            <div class="out-desc">A personal and provocative essay on mathematical anxiety, the cultural roots of the widespread fear of mathematics in Italy, and what it might take to change our collective relationship with the subject.</div>
+            <div class="out-links">
+              <a href="http://www.parliamoneora.it/matematica/" target="_blank" class="btn-sm">Read online (in Italian)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINAMICI -->
+  <section>
+    <div class="inner">
+      <span class="sec-eyebrow reveal">Community</span>
+      <div class="out-card reveal" style="border-left:3px solid var(--accent);">
+        <span class="out-year">2009<br>→</span>
+        <div>
+          <div class="out-type">Co-founder &amp; organiser</div>
+          <div class="out-title">DinAmicI — The Community of Italian Dynamicists</div>
+          <div class="out-desc">DinAmicI is the informal community of Italian researchers in dynamical systems, ergodic theory, and related areas. Founded in 2009 with a series of workshops in Corinaldo, it has grown into a network of regular workshops, a DinAmicI Day series, and an active online presence. I co-founded and have co-organised many of its events, including workshops in Corinaldo, Pisa, L'Aquila, Varese, and Rio de Janeiro.</div>
+          <div class="out-links">
+            <a href="http://dinamici.org" target="_blank" class="btn-sm">dinamici.org</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="footer-left">Marco Lenci · Università di Bologna<br>Dipartimento di Fisica e Astronomia "Augusto Righi"</div>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+</footer>
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}}),{threshold:.04});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
