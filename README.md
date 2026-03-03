@@ -1,2 +1,2 @@
-# marcolenci.githiub.io
+# marcolenci.github.io
 My personal website
