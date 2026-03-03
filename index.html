@@ -8,17 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── HERO ── */
+    .disclaimer {
+      background: rgba(42,95,168,0.07);
+      border-bottom: 1px solid rgba(42,95,168,0.18);
+      padding: .85rem 3rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .63rem; line-height: 1.75; color: var(--muted);
+      letter-spacing: .025em; position: relative; z-index: 400;
+    }
+    .disclaimer strong { color: var(--ink); }
+    .disclaimer em { font-style: italic; }
     .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 72px;
+      min-height: 100vh; display: grid;
+      grid-template-columns: 1fr 1fr; padding-top: 72px;
     }
     .hero-left {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 5rem 4rem 5rem 3rem;
-      border-right: 1px solid var(--rule);
+      padding: 5rem 4rem 5rem 3rem; border-right: 1px solid var(--rule);
     }
     .hero-tag {
       font-family: 'JetBrains Mono', monospace;
@@ -28,8 +34,7 @@
     }
     .hero-name {
       font-size: clamp(3.5rem, 5.5vw, 6rem);
-      font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
-      margin-bottom: .8rem;
+      font-weight: 300; line-height: 1.0; letter-spacing: -.025em; margin-bottom: .8rem;
       opacity: 0; animation: fadeUp .7s .25s ease forwards;
     }
     .hero-name em { font-style: italic; color: var(--accent); }
@@ -45,16 +50,14 @@
     }
     .hero-desc2 {
       font-size: 1.08rem; font-weight: 300; line-height: 1.85;
-      max-width: 46ch; margin-bottom: 3rem;
+      max-width: 46ch; margin-bottom: 3rem; color: var(--muted);
       opacity: 0; animation: fadeUp .7s .65s ease forwards;
-      color: var(--muted);
     }
     .hero-lean {
       display: inline-flex; align-items: center; gap: .6rem;
       font-family: 'JetBrains Mono', monospace;
       font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent2);
-      border: 1px solid rgba(42,95,168,.3);
+      color: var(--accent2); border: 1px solid rgba(42,95,168,.3);
       padding: .4rem .9rem; margin-bottom: 2.5rem;
       opacity: 0; animation: fadeUp .7s .72s ease forwards;
     }
@@ -63,21 +66,13 @@
       display: flex; gap: 1.2rem; flex-wrap: wrap;
       opacity: 0; animation: fadeUp .7s .85s ease forwards;
     }
-    /* ── HERO RIGHT: canvas ── */
-    .hero-right {
-      position: relative; overflow: hidden;
-      background: var(--dark);
-    }
-    #heroCanvas {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-    }
+    .hero-right { position: relative; overflow: hidden; background: var(--dark); }
+    #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
     .canvas-label {
       position: absolute; bottom: 1.5rem; left: 2rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: .58rem; letter-spacing: .15em; text-transform: uppercase;
-      color: rgba(255,255,255,.25);
-      z-index: 10;
+      font-size: .56rem; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.22); z-index: 10; max-width: 280px; line-height: 1.5;
     }
     .canvas-toggle {
       position: absolute; top: 1.5rem; right: 1.5rem;
@@ -85,99 +80,88 @@
     }
     .ctg-btn {
       font-family: 'JetBrains Mono', monospace;
-      font-size: .55rem; letter-spacing: .1em; text-transform: uppercase;
+      font-size: .53rem; letter-spacing: .1em; text-transform: uppercase;
       padding: .3rem .7rem; border: 1px solid rgba(255,255,255,.2);
       background: transparent; color: rgba(255,255,255,.4);
-      cursor: pointer; transition: all .2s;
+      cursor: pointer; transition: all .2s; white-space: nowrap;
     }
     .ctg-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-
-    /* ── INTERESTS ── */
     .interests-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px;
     }
     .int-card {
       background: var(--bright); border: 1px solid var(--rule);
-      padding: 2.2rem; position: relative; overflow: hidden;
-      transition: transform .25s;
+      padding: 2.2rem; position: relative; overflow: hidden; transition: transform .25s;
     }
     .int-card:hover { transform: translateY(-3px); }
     .int-card::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 2px; background: var(--accent);
-      transform: scaleX(0); transition: transform .25s;
+      height: 2px; background: var(--accent); transform: scaleX(0); transition: transform .25s;
     }
     .int-card:hover::after { transform: scaleX(1); }
     .int-glyph { font-size: 1.6rem; margin-bottom: 1rem; display: block; }
     .int-title { font-size: 1.2rem; font-weight: 400; margin-bottom: .6rem; }
     .int-desc { font-size: .92rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
-
-    /* ── LEAN BLOCK ── */
     .lean-block {
-      background: var(--dark);
-      padding: 4rem 3rem;
+      background: var(--dark); padding: 4rem 3rem;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
     }
-    .lean-text-side {}
     .lean-eyebrow {
       font-family: 'JetBrains Mono', monospace;
       font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
       color: var(--accent2); margin-bottom: 1.2rem; display: block;
     }
-    .lean-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: #fff; margin-bottom: 1.5rem; letter-spacing: -.01em; }
+    .lean-title { font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 300; color: #fff; margin-bottom: 1.5rem; letter-spacing: -.01em; }
     .lean-title em { font-style: italic; color: var(--accent2); }
     .lean-desc { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 1.5rem; }
     .lean-code {
       background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
-      border-left: 3px solid var(--accent2);
-      padding: 1.5rem 1.8rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .75rem; line-height: 1.9;
-      color: rgba(255,255,255,.7);
+      border-left: 3px solid var(--accent2); padding: 1.5rem 1.8rem;
+      font-family: 'JetBrains Mono', monospace; font-size: .75rem; line-height: 1.9; color: rgba(255,255,255,.7);
     }
     .lean-code .kw { color: #7eb0e8; }
     .lean-code .cm { color: rgba(255,255,255,.3); font-style: italic; }
     .lean-code .id { color: #e8c87e; }
-
-    /* ── SELECTED PAPERS ── */
     .paper-row {
       display: grid; grid-template-columns: 1fr auto;
       gap: 2rem; padding: 1.5rem 1.5rem;
       border-bottom: 1px solid rgba(213,205,191,.45);
-      transition: background .18s; align-items: start;
-      text-decoration: none; color: inherit;
+      transition: background .18s; align-items: start; text-decoration: none; color: inherit;
     }
     .paper-row:hover { background: var(--bright); }
     .paper-title { font-size: 1rem; font-weight: 400; line-height: 1.5; margin-bottom: .35rem; }
     .paper-meta { font-size: .84rem; color: var(--muted); font-style: italic; }
     .paper-links { display: flex; gap: .5rem; padding-top: .1rem; flex-shrink: 0; }
-
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-right { height: 50vw; }
+      .hero-right { height: 60vw; }
       .hero-left { padding: 4rem 1.5rem; }
       .lean-block { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
       .paper-row { grid-template-columns: 1fr; }
+      .disclaimer { padding: .9rem 1.5rem; }
     }
   </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">Marco Lenci</a>
   <ul class="nav-links">
+    <li><a href="cv/index.html">CV</a></li>
     <li><a href="research/index.html">Research</a></li>
     <li><a href="teaching/index.html">Teaching</a></li>
-    <li><a href="cv/index.html">CV</a></li>
     <li><a href="outreach/index.html">Outreach</a></li>
     <li><a href="contact/index.html">Contact</a></li>
   </ul>
 </nav>
 
-<div class="page-wrap">
-  <!-- HERO -->
+<div class="disclaimer">
+  <strong>Note:</strong> This website was generated by <em>Claude</em> by Anthropic, following my prompts.
+  While I stand by its design and general information, <em>I cannot vouch for any single sentence you might read.</em>
+</div>
+
+<div class="page-wrap" style="padding-top:0">
   <div class="hero">
     <div class="hero-left">
       <span class="hero-tag">Full Professor · Università di Bologna</span>
@@ -191,7 +175,7 @@
       </p>
       <div class="hero-lean">
         <span></span>
-        Lean4 advocate &amp; amateur formal mathematician
+        Lean 4 advocate &amp; amateur formal mathematician
       </div>
       <div class="hero-ctas">
         <a href="research/index.html" class="btn btn-dark">Research &amp; Publications</a>
@@ -201,15 +185,14 @@
 
     <div class="hero-right">
       <div class="canvas-toggle">
-        <button class="ctg-btn on" id="btn-billiard" onclick="setMode('billiard')">Billiard</button>
-        <button class="ctg-btn" id="btn-rw" onclick="setMode('rw')">Lévy Walk</button>
+        <button class="ctg-btn on" id="btn-billiard" onclick="setMode('billiard')">Lorentz Gas</button>
+        <button class="ctg-btn" id="btn-rw" onclick="setMode('rw')">Lévy–Lorentz Gas</button>
       </div>
       <canvas id="heroCanvas"></canvas>
-      <div class="canvas-label" id="canvas-label">Infinite-step billiard simulation</div>
+      <div class="canvas-label" id="canvas-label">Aperiodic Lorentz gas &mdash; elastic billiard trajectories</div>
     </div>
   </div>
 
-  <!-- RESEARCH INTERESTS -->
   <section>
     <div class="inner">
       <div class="reveal" style="margin-bottom:3rem">
@@ -230,7 +213,7 @@
         <div class="int-card reveal">
           <span class="int-glyph">≋</span>
           <h3 class="int-title">Random Walks in Lévy Media</h3>
-          <p class="int-desc">Random environments whose jump lengths follow heavy-tailed (Lévy) distributions produce anomalous transport. I prove limit theorems — laws of large numbers, CLTs, large deviations — for these models in 1D and beyond.</p>
+          <p class="int-desc">Random environments whose gap lengths follow heavy-tailed (Lévy) distributions produce anomalous transport. I prove limit theorems — laws of large numbers, CLTs, large deviations — for these models in 1D and beyond.</p>
         </div>
         <div class="int-card reveal">
           <span class="int-glyph">∿</span>
@@ -240,20 +223,19 @@
         <div class="int-card reveal">
           <span class="int-glyph">⟨ψ|</span>
           <h3 class="int-title">Quantum &amp; Statistical Mechanics</h3>
-          <p class="int-desc">Early work on the ergodic properties of quantum ideal gases, large deviations in quantum lattice systems, and connections between classical billiard geometry and quantum ergodicity (Schnirelman theorem).</p>
+          <p class="int-desc">Early work on the ergodic properties of quantum ideal gases, large deviations in quantum lattice systems, and connections between classical billiard geometry and quantum ergodicity.</p>
         </div>
         <div class="int-card reveal">
           <span class="int-glyph">#check</span>
           <h3 class="int-title">Formal Mathematics &amp; Lean</h3>
-          <p class="int-desc">I am an advocate of computer-verified proofs and an amateur Lean 4 programmer. I co-organised the 2024 workshop "Computer-verified proofs: 48 hours in Rome" and the 2025 "ItaLean" conference in Bologna.</p>
+          <p class="int-desc">I am an advocate of computer-verified proofs and an amateur Lean 4 programmer. I co-organised the 2024 workshop "48 hours in Rome" and the 2025 "ItaLean" conference in Bologna.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LEAN BLOCK -->
   <div class="lean-block reveal">
-    <div class="lean-text-side">
+    <div>
       <span class="lean-eyebrow">Lean 4 &amp; Formal Proofs</span>
       <h2 class="lean-title">Mathematics<br>you can <em>verify</em></h2>
       <p class="lean-desc">Beyond research and teaching, I am an active advocate for the proof assistant <strong style="color:#fff">Lean 4</strong> and its mathematical library Mathlib. I believe that computer-verified proofs represent a genuine shift in how mathematics can be done and communicated — making results checkable, modular, and reusable.</p>
@@ -273,7 +255,6 @@
     </div>
   </div>
 
-  <!-- SELECTED PUBLICATIONS -->
   <section>
     <div class="inner">
       <div class="reveal" style="display:flex;align-items:baseline;gap:2rem;margin-bottom:3rem;">
@@ -286,18 +267,14 @@
             <div class="paper-title">Limit theorems and lack thereof for a multilayer random walk mimicking human mobility</div>
             <div class="paper-meta">with A. Bianchi &amp; F. Pène — preprint (2025)</div>
           </div>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2503.01503" class="btn-sm arxiv" target="_blank">arXiv</a>
-          </div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2503.01503" class="btn-sm arxiv" target="_blank">arXiv</a></div>
         </div>
         <div class="paper-row">
           <div>
             <div class="paper-title">Uniformly global observables for 1D maps with an indifferent fixed point</div>
             <div class="paper-meta">with G. Canestrari — preprint (2024)</div>
           </div>
-          <div class="paper-links">
-            <a href="https://arxiv.org/abs/2405.05948" class="btn-sm arxiv" target="_blank">arXiv</a>
-          </div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2405.05948" class="btn-sm arxiv" target="_blank">arXiv</a></div>
         </div>
         <div class="paper-row">
           <div>
@@ -322,7 +299,7 @@
         <div class="paper-row">
           <div>
             <div class="paper-title">On infinite-volume mixing</div>
-            <div class="paper-meta">Comm. Math. Phys. 298 (2010) — A foundational paper introducing global-local mixing</div>
+            <div class="paper-meta">Comm. Math. Phys. 298 (2010) — foundational paper introducing global-local mixing</div>
           </div>
           <div class="paper-links">
             <a href="https://doi.org/10.1007/s00220-010-1043-6" class="btn-sm" target="_blank">DOI</a>
@@ -352,7 +329,7 @@ const obs = new IntersectionObserver(es => es.forEach((e,i) => {
 }), { threshold: .08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// ── CANVAS SIMULATION ──
+// ── CANVAS SETUP ──
 const canvas = document.getElementById('heroCanvas');
 const ctx = canvas.getContext('2d');
 let mode = 'billiard';
@@ -361,197 +338,320 @@ let animId;
 function setMode(m) {
   mode = m;
   document.getElementById('btn-billiard').className = 'ctg-btn' + (m==='billiard'?' on':'');
-  document.getElementById('btn-rw').className = 'ctg-btn' + (m==='rw'?' on':'');
+  document.getElementById('btn-rw').className       = 'ctg-btn' + (m==='rw'?' on':'');
   document.getElementById('canvas-label').textContent = m==='billiard'
-    ? 'Infinite-step billiard simulation'
-    : 'Random walk in a 1D Lévy random environment';
+    ? 'Aperiodic Lorentz gas \u2014 elastic billiard trajectories'
+    : 'L\u00e9vy\u2013Lorentz gas \u2014 random walk in a disordered medium';
   cancelAnimationFrame(animId);
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  if (m==='billiard') runBilliard();
-  else runRW();
+  if (m==='billiard') runLorentzGas(); else runLevyLorentz();
 }
 
 function resize() {
   const r = canvas.parentElement.getBoundingClientRect();
   canvas.width = r.width; canvas.height = r.height;
 }
-window.addEventListener('resize', () => { resize(); cancelAnimationFrame(animId); ctx.clearRect(0,0,canvas.width,canvas.height); if(mode==='billiard') runBilliard(); else runRW(); });
+window.addEventListener('resize', () => {
+  resize(); cancelAnimationFrame(animId);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  if (mode==='billiard') runLorentzGas(); else runLevyLorentz();
+});
 resize();
 
-// ── BILLIARD ──
-function runBilliard() {
+// ═══════════════════════════════════════════════════════════════
+//  APERIODIC LORENTZ GAS
+//  Circular scatterers on a quasiperiodic layout.
+//  Multiple billiard trajectories with fully elastic reflections.
+//  When a trajectory escapes the window, a new one spawns.
+// ═══════════════════════════════════════════════════════════════
+function runLorentzGas() {
   const W = canvas.width, H = canvas.height;
-  const balls = [];
-  const TRAIL = 220;
-  const cols = ['rgba(184,52,24,', 'rgba(42,95,168,', 'rgba(200,180,120,'];
 
-  // Boundary: step-like floor
-  function getFloorY(x) {
-    const seg = Math.floor(x / (W/8));
-    return H * (.55 + (seg % 4) * .07);
+  // ── Build aperiodic scatterer field ──
+  // Use a grid perturbed by quasiperiodic (golden-ratio) displacements.
+  const scatterers = [];
+  const phi = (1 + Math.sqrt(5)) / 2;
+  const BASE_R = Math.min(W, H) * 0.048;
+  const SPACING = BASE_R * 3.7;
+  const ncols = Math.ceil(W / SPACING) + 2;
+  const nrows = Math.ceil(H / SPACING) + 2;
+
+  for (let row = -1; row < nrows; row++) {
+    for (let col = -1; col < ncols; col++) {
+      const cx = (col + 0.5) * SPACING;
+      const cy = (row + 0.5) * SPACING;
+      const dx = BASE_R * 0.6 * Math.sin(col * phi * 2.1 + row * 1.3);
+      const dy = BASE_R * 0.6 * Math.cos(col * 1.5 + row * phi * 1.7);
+      const r  = BASE_R * (0.72 + 0.28 * Math.abs(Math.sin((col + row) * phi)));
+      scatterers.push({ x: cx + dx, y: cy + dy, r });
+    }
   }
 
-  for (let b = 0; b < 3; b++) {
-    const ang = (.3 + b*.4) * Math.PI;
-    balls.push({
-      x: W * (.2 + b*.25), y: H * .3,
-      vx: Math.cos(ang)*3.2, vy: Math.sin(ang)*2.8,
-      trail: [], col: cols[b]
-    });
+  // ── Particle colours (same palette as Lévy–Lorentz) ──
+  const COLS = [
+    [184, 52,  24],   // terracotta
+    [ 42, 95, 168],   // blue
+    [190,160,  70],   // gold
+    [ 80,170, 120],   // teal
+  ];
+  const TRAIL = 500;
+  const SPEED = 2.6;
+
+  // ── Particle factory ──
+  function newParticle(id) {
+    const angle = Math.random() * Math.PI * 2;
+    // Spawn near centre, jittered
+    const sx = W * 0.5 + (Math.random() - 0.5) * W * 0.25;
+    const sy = H * 0.5 + (Math.random() - 0.5) * H * 0.25;
+    // Push out of any overlapping scatterer
+    let px = sx, py = sy;
+    for (const sc of scatterers) {
+      const dx = px - sc.x, dy = py - sc.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < sc.r + 2) {
+        const nd = dx/d, ny = dy/d;
+        px = sc.x + nd * (sc.r + 3);
+        py = sc.y + ny * (sc.r + 3);
+      }
+    }
+    const [r,g,b] = COLS[id % COLS.length];
+    return { x: px, y: py,
+             vx: Math.cos(angle)*SPEED, vy: Math.sin(angle)*SPEED,
+             trail: [], r, g, b, age: 0 };
+  }
+
+  const NUM = 4;
+  let particles = Array.from({length: NUM}, (_,i) => newParticle(i));
+
+  // ── Elastic reflection off circle boundary ──
+  function reflectCircle(p, sc) {
+    const dx = p.x - sc.x, dy = p.y - sc.y;
+    const d  = Math.sqrt(dx*dx + dy*dy);
+    const nx = dx/d,  ny = dy/d;
+    const dot = p.vx*nx + p.vy*ny;
+    if (dot < 0) {           // only reflect if approaching
+      p.vx -= 2*dot*nx;
+      p.vy -= 2*dot*ny;
+    }
+    // Ensure particle is outside the disk
+    const pen = sc.r + 1.5 - d;
+    if (pen > 0) { p.x += nx*pen; p.y += ny*pen; }
+  }
+
+  function drawScatterers() {
+    for (const sc of scatterers) {
+      ctx.beginPath();
+      ctx.arc(sc.x, sc.y, sc.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      // Tiny centre dot
+      ctx.beginPath();
+      ctx.arc(sc.x, sc.y, 1.5, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.2)';
+      ctx.fill();
+    }
   }
 
   function step() {
-    ctx.fillStyle = 'rgba(26,23,20,0.18)';
-    ctx.fillRect(0,0,W,H);
+    // Fade background — creates the luminous trail
+    ctx.fillStyle = 'rgba(26,23,20,0.16)';
+    ctx.fillRect(0, 0, W, H);
 
-    // Draw step billiard boundary
-    ctx.beginPath(); ctx.moveTo(0, H);
-    for (let x = 0; x <= W; x+=2) { ctx.lineTo(x, getFloorY(x)); }
-    ctx.lineTo(W, H); ctx.closePath();
-    ctx.fillStyle = 'rgba(255,255,255,0.04)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
-    ctx.lineWidth = 1; ctx.stroke();
+    drawScatterers();
 
-    // Top wall line
-    ctx.beginPath(); ctx.moveTo(0, H*.08); ctx.lineTo(W, H*.08);
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.stroke();
+    for (let pi = 0; pi < particles.length; pi++) {
+      const p = particles[pi];
+      p.age++;
 
-    for (const ball of balls) {
-      ball.vy += 0.04; // gentle gravity
-      ball.x += ball.vx; ball.y += ball.vy;
+      // Sub-step to avoid tunnelling
+      const SUB = 5;
+      const svx = p.vx / SUB, svy = p.vy / SUB;
+      let escaped = false;
 
-      // Wall bounces
-      if (ball.x < 10) { ball.x = 10; ball.vx = Math.abs(ball.vx); }
-      if (ball.x > W-10) { ball.x = W-10; ball.vx = -Math.abs(ball.vx); }
-      if (ball.y < H*.08) { ball.y = H*.08; ball.vy = Math.abs(ball.vy)*0.9; }
-
-      // Step floor bounce
-      const fy = getFloorY(ball.x);
-      if (ball.y >= fy - 6) {
-        ball.y = fy - 6;
-        ball.vy = -Math.abs(ball.vy) * .88;
-        ball.vx *= .995;
-        if (Math.abs(ball.vy) < .5) ball.vy = -(1.5 + Math.random()*2);
+      for (let s = 0; s < SUB; s++) {
+        p.x += svx; p.y += svy;
+        for (const sc of scatterers) {
+          const dx = p.x - sc.x, dy = p.y - sc.y;
+          if (dx*dx + dy*dy < (sc.r + 2)*(sc.r + 2)) {
+            reflectCircle(p, sc);
+          }
+        }
+        if (p.x < -80 || p.x > W+80 || p.y < -80 || p.y > H+80) {
+          escaped = true; break;
+        }
       }
 
-      ball.trail.push({x: ball.x, y: ball.y});
-      if (ball.trail.length > TRAIL) ball.trail.shift();
-
-      // Draw trail
-      for (let i = 1; i < ball.trail.length; i++) {
-        const a = i / ball.trail.length;
-        ctx.beginPath();
-        ctx.moveTo(ball.trail[i-1].x, ball.trail[i-1].y);
-        ctx.lineTo(ball.trail[i].x, ball.trail[i].y);
-        ctx.strokeStyle = ball.col + a*.7 + ')';
-        ctx.lineWidth = 1.2 * a;
-        ctx.stroke();
+      if (escaped || p.age > 5000) {
+        particles[pi] = newParticle(pi); continue;
       }
 
-      // Ball
-      ctx.beginPath();
-      ctx.arc(ball.x, ball.y, 4, 0, Math.PI*2);
-      ctx.fillStyle = ball.col + '1)';
-      ctx.fill();
+      p.trail.push({x: p.x, y: p.y});
+      if (p.trail.length > TRAIL) p.trail.shift();
+
+      // Draw trail with fading opacity
+      const tlen = p.trail.length;
+      if (tlen > 1) {
+        for (let i = 1; i < tlen; i++) {
+          const a = i / tlen;
+          ctx.beginPath();
+          ctx.moveTo(p.trail[i-1].x, p.trail[i-1].y);
+          ctx.lineTo(p.trail[i].x,   p.trail[i].y);
+          ctx.strokeStyle = `rgba(${p.r},${p.g},${p.b},${a*0.72})`;
+          ctx.lineWidth = 0.9 + a * 0.7;
+          ctx.stroke();
+        }
+      }
+
+      // Glowing head
+      const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 8);
+      grd.addColorStop(0, `rgba(${p.r},${p.g},${p.b},1)`);
+      grd.addColorStop(1, `rgba(${p.r},${p.g},${p.b},0)`);
+      ctx.beginPath(); ctx.arc(p.x, p.y, 8, 0, Math.PI*2);
+      ctx.fillStyle = grd; ctx.fill();
+
+      ctx.beginPath(); ctx.arc(p.x, p.y, 2.5, 0, Math.PI*2);
+      ctx.fillStyle = `rgb(${p.r},${p.g},${p.b})`; ctx.fill();
     }
+
     animId = requestAnimationFrame(step);
   }
 
-  // Dark bg
   ctx.fillStyle = '#1a1714';
-  ctx.fillRect(0,0,W,H);
+  ctx.fillRect(0, 0, W, H);
   step();
 }
 
-// ── LÉVY RANDOM WALK ──
-function runRW() {
+// ═══════════════════════════════════════════════════════════════
+//  LÉVY–LORENTZ GAS
+//  1D Lorentz gas with Lévy-distributed scatterer gaps.
+//  Walkers bounce elastically between scatterers.
+// ═══════════════════════════════════════════════════════════════
+function runLevyLorentz() {
   const W = canvas.width, H = canvas.height;
   const CY = H / 2;
-  let walkers = [];
-  // Random Lévy environment: scatter points with heavy-tailed gaps
+
+  // ── Generate Lévy-distributed scatterer positions ──
   const envPts = [];
   let ex = 0;
-  while (ex < W) {
-    ex += 5 + Math.pow(Math.random(), -1.5) * 8;
+  while (ex < W * 1.3) {
+    const u = Math.random();
+    // Pareto tail with exponent ~1.2 → heavy tail, sporadic long gaps
+    const gap = 5 + 14 * Math.pow(u, -1.0 / 1.2);
+    ex += gap;
     envPts.push(ex);
   }
 
-  for (let w = 0; w < 4; w++) {
-    walkers.push({
-      x: W/2,
-      history: [{x: W/2, y: CY + (w-1.5)*30}],
-      vel: (Math.random()>.5?1:-1) * (1+Math.random()*2),
-      steps: 0,
-      maxSteps: 30 + Math.floor(Math.random()*80),
-      yOff: (w-1.5)*30,
-      col: ['rgba(184,52,24,','rgba(42,95,168,','rgba(180,160,80,','rgba(80,160,100,'][w]
-    });
+  // ── Colours (same as Lorentz gas for visual consistency) ──
+  const COLS = [
+    [184, 52,  24],
+    [ 42, 95, 168],
+    [190,160,  70],
+    [ 80,170, 120],
+  ];
+  const NUM = 4;
+  const TRAIL = 340;
+
+  function makeWalker(id) {
+    const [r,g,b] = COLS[id % COLS.length];
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    const startX = W * (0.25 + Math.random() * 0.5);
+    return {
+      x: startX,
+      yOff: (id - (NUM-1)/2) * 26,
+      vel: dir * (2.2 + Math.random() * 1.8),
+      target: null,
+      history: [],
+      r, g, b, age: 0
+    };
   }
 
-  let t = 0;
-  function step() {
-    ctx.fillStyle = 'rgba(26,23,20,0.15)';
-    ctx.fillRect(0,0,W,H);
-
-    // Draw environment markers
+  function findTarget(w) {
+    const dir = w.vel > 0 ? 1 : -1;
+    let best = null, bd = Infinity;
     for (const ep of envPts) {
-      if (ep < 0 || ep > W) continue;
+      const dx = (ep - w.x) * dir;
+      if (dx > 2 && dx < bd) { bd = dx; best = ep; }
+    }
+    return best;
+  }
+
+  let walkers = Array.from({length: NUM}, (_, i) => makeWalker(i));
+  let t = 0;
+
+  function step() {
+    ctx.fillStyle = 'rgba(26,23,20,0.16)';
+    ctx.fillRect(0, 0, W, H);
+
+    // Draw scatterers
+    for (const ep of envPts) {
+      if (ep < -30 || ep > W + 30) continue;
       ctx.beginPath();
-      ctx.moveTo(ep, CY - 60); ctx.lineTo(ep, CY + 60);
-      ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+      ctx.moveTo(ep, CY - H*0.36);
+      ctx.lineTo(ep, CY + H*0.36);
+      ctx.strokeStyle = 'rgba(255,255,255,0.065)';
       ctx.lineWidth = 1; ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(ep, CY, 3, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(255,255,255,0.12)';
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(ep, CY, 3.5, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fill();
     }
 
     // Axis
     ctx.beginPath(); ctx.moveTo(0, CY); ctx.lineTo(W, CY);
-    ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 1; ctx.stroke();
 
-    for (const w of walkers) {
-      w.steps++;
-      if (w.steps >= w.maxSteps) {
-        w.steps = 0;
-        w.vel = (Math.random()>.5?1:-1) * (2 + Math.pow(Math.random(),-1.2)*3);
-        w.maxSteps = 20 + Math.floor(Math.random()*100);
+    for (let wi = 0; wi < walkers.length; wi++) {
+      const w = walkers[wi];
+      w.age++;
+      if (!w.target) w.target = findTarget(w);
+
+      w.x += w.vel;
+
+      const dir = w.vel > 0 ? 1 : -1;
+      if (w.target !== null && dir*(w.x - w.target) >= 0) {
+        w.x = w.target;
+        w.vel = -dir * (2.2 + Math.random() * 1.8);
+        w.target = null;
       }
-      w.x += w.vel * .7;
-      // Bounce at walls
-      if (w.x < 20) { w.x = 20; w.vel = Math.abs(w.vel); }
-      if (w.x > W-20) { w.x = W-20; w.vel = -Math.abs(w.vel); }
 
-      const py = CY + w.yOff + Math.sin(t*.04 + w.yOff) * 5;
+      if (w.x < -100 || w.x > W+100 || w.age > 4000) {
+        walkers[wi] = makeWalker(wi); continue;
+      }
+
+      const py = CY + w.yOff + Math.sin(t*0.034 + wi*1.5) * 4;
       w.history.push({x: w.x, y: py});
-      if (w.history.length > 300) w.history.shift();
+      if (w.history.length > TRAIL) w.history.shift();
 
       // Trail
-      ctx.beginPath();
-      for (let i = 0; i < w.history.length; i++) {
-        const a = i / w.history.length;
-        if (i===0) ctx.moveTo(w.history[i].x, w.history[i].y);
-        else ctx.lineTo(w.history[i].x, w.history[i].y);
+      if (w.history.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(w.history[0].x, w.history[0].y);
+        for (let i = 1; i < w.history.length; i++) ctx.lineTo(w.history[i].x, w.history[i].y);
+        ctx.strokeStyle = `rgba(${w.r},${w.g},${w.b},0.55)`;
+        ctx.lineWidth = 1.5; ctx.stroke();
       }
-      ctx.strokeStyle = w.col + '.55)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
 
-      // Head
-      ctx.beginPath();
-      ctx.arc(w.x, py, 5, 0, Math.PI*2);
-      ctx.fillStyle = w.col + '1)';
-      ctx.fill();
+      // Glowing head
+      const grd = ctx.createRadialGradient(w.x, py, 0, w.x, py, 9);
+      grd.addColorStop(0, `rgba(${w.r},${w.g},${w.b},1)`);
+      grd.addColorStop(1, `rgba(${w.r},${w.g},${w.b},0)`);
+      ctx.beginPath(); ctx.arc(w.x, py, 9, 0, Math.PI*2);
+      ctx.fillStyle = grd; ctx.fill();
+      ctx.beginPath(); ctx.arc(w.x, py, 3, 0, Math.PI*2);
+      ctx.fillStyle = `rgb(${w.r},${w.g},${w.b})`; ctx.fill();
     }
+
     t++;
     animId = requestAnimationFrame(step);
   }
-  ctx.fillStyle = '#1a1714'; ctx.fillRect(0,0,W,H);
+
+  ctx.fillStyle = '#1a1714';
+  ctx.fillRect(0, 0, W, H);
   step();
 }
 
-runBilliard();
+runLorentzGas();
 </script>
 </body>
 </html>
