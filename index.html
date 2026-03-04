@@ -14,7 +14,7 @@
       padding: .85rem 3rem;
       font-family: 'JetBrains Mono', monospace;
       font-size: .63rem; line-height: 1.75; color: var(--muted);
-      letter-spacing: .025em; position: relative; z-index: 400;
+      letter-spacing: .025em; position: relative; z-index: 400; margin-top: 72px;
     }
     .disclaimer strong { color: var(--ink); }
     .disclaimer em { font-style: italic; }
@@ -65,6 +65,16 @@
     .hero-ctas {
       display: flex; gap: 1.2rem; flex-wrap: wrap;
       opacity: 0; animation: fadeUp .7s .85s ease forwards;
+    }
+    .hero-photo {
+      width: 96px; height: 96px; border-radius: 50%;
+      object-fit: cover; object-position: 25% 28%;
+      transform: scale(1.6); transform-origin: 25% 28%;
+      overflow: hidden;
+      border: 1px solid rgba(42,95,168,.25);
+      box-shadow: 0 2px 16px rgba(0,0,0,.15);
+      margin-bottom: 1.8rem; display: block;
+      opacity: 0; animation: fadeUp .7s .05s ease forwards;
     }
     .hero-right { position: relative; overflow: hidden; background: var(--dark); }
     #heroCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -164,11 +174,12 @@
 <div class="page-wrap" style="padding-top:0">
   <div class="hero">
     <div class="hero-left">
+      <img src="crop3b.jpg" alt="Marco Lenci" class="hero-photo">
       <span class="hero-tag">Full Professor of Mathematical Physics</span>
       <h1 class="hero-name">Marco<br><em>Lenci</em></h1>
       <h2 class="hero-position">Department of Physics &amp; Astronomy<br>University of Bologna</h2>
       <p class="hero-desc">
-        I am a mathematical physicist working at the intersection of dynamical systems, ergodic theory, and probability. My research centres on the long-time behavior of systems that are chaotic, non-compact, or set in random environments — regimes where classical methods break down and new ideas are needed. My main areas include <em>infinite-measure ergodic theory</em>, billiard dynamics, and random walks in disordered (Lévy) media.
+        I am a mathematical physicist working at the intersection of dynamical systems, ergodic theory, and probability. My research centers on the long-time behavior of systems that are chaotic, non-compact, or set in random environments — regimes where classical methods break down and new ideas are needed. My main areas include <em>infinite-measure ergodic theory</em>, billiard dynamics, and random walks in disordered (Lévy) media.
       </p>
       <p class="hero-desc2">
         A recurring theme across my work is the question of <em>mixing and transport</em>: how does information — or a physical particle — spread through an infinite or aperiodic system over time? This question connects pure mathematics to concrete physics: heat conduction, anomalous diffusion, and the statistical properties of gases.
@@ -224,7 +235,7 @@
         <div class="int-card reveal">
           <span class="int-glyph">#check</span>
           <h3 class="int-title">Formal Mathematics &amp; Lean</h3>
-          <p class="int-desc">I am an advocate of computer-verified proofs and an amateur Lean 4 programmer. I co-organised the 2024 workshop "48 hours in Rome" and the 2025 "ItaLean" conference in Bologna.</p>
+          <p class="int-desc">I am an advocate of computer-verified proofs and an amateur Lean 4 programmer. I co-organized the 2024 workshop "48 hours in Rome" and the 2025 "ItaLean" conference in Bologna.</p>
         </div>
       </div>
     </div>
@@ -235,7 +246,7 @@
       <span class="lean-eyebrow">Lean 4 &amp; Formal Proofs</span>
       <h2 class="lean-title">Mathematics<br>you can <em>verify</em></h2>
       <p class="lean-desc">I am an active advocate for the proof assistant <strong style="color:#fff">Lean 4</strong> and its mathematical library Mathlib. I believe that computer-verified proofs represent a genuine shift in how mathematics will be done in the (near) future, by humans and machines together.</p>
-      <p class="lean-desc">As an amateur Lean programmer, I explore the formalization of simple and more complicated results, especially in my fields of interest. I co-organised the 2024 workshop "48 hours in Rome" and the December 2025 conference <em>ItaLean — Bridging Formal Mathematics and AI</em> in Bologna.</p>
+      <p class="lean-desc">As an amateur Lean programmer, I explore the formalization of simple and more complicated results, especially in my fields of interest. I co-organized the 2024 workshop "48 hours in Rome" and the December 2025 conference <em>ItaLean — Bridging Formal Mathematics and AI</em> in Bologna.</p>
     </div>
     <div>
       <div class="lean-code">
@@ -314,10 +325,10 @@
   <div class="footer-left">
     Marco Lenci · Università di Bologna
   </div>
-  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+  <a href="/cdn-cgi/l/email-protection#305d5142535f1e5c555e535970455e59525f1e5944" class="footer-email"><span class="__cf_email__" data-cfemail="3d505c4f5e52135158535e547d4853545f52135449">[email&#160;protected]</span></a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── SCROLL REVEAL ──
 const obs = new IntersectionObserver(es => es.forEach((e,i) => {
   if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i*70); obs.unobserve(e.target); }
@@ -524,36 +535,84 @@ function runLorentzGas() {
 //  1D Lorentz gas with Lévy-distributed scatterer gaps.
 //  Walkers bounce elastically between scatterers.
 // ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
+//  LÉVY–LORENTZ GAS  (target-picking version)
+//  Each walker picks a random target scatterer (possibly outside
+//  the visible window), travels there at constant speed, arrives,
+//  then immediately picks a new random target and repeats.
+//  When the walker goes off-screen it respawns at centre.
+// ═══════════════════════════════════════════════════════════════
 function runLevyLorentz() {
   const W = canvas.width, H = canvas.height;
   const CY = H / 2;
-  let walkers = [];
-  // Random Lévy environment: scatter points with heavy-tailed gaps
+  const SPEED = 3.6; // pixels per frame, same for every walker
+
+  // Build Lévy random environment (heavy-tailed gaps)
   const envPts = [];
-  let ex = 0;
-  while (ex < W) {
-    ex += 5 + Math.pow(Math.random(), -1.5) * 8;
+  let ex = W / 2;
+  while (ex < W * 3) {
+    ex += 4 + Math.pow(Math.random(), -1.4) * 7;
     envPts.push(ex);
   }
+  ex = W / 2;
+  while (ex > -W * 2) {
+    ex -= 4 + Math.pow(Math.random(), -1.4) * 7;
+    envPts.push(ex);
+  }
+  envPts.sort((a, b) => a - b);
 
-  for (let w = 0; w < 4; w++) {
-    walkers.push({
-      x: W/2,
-      history: [{x: W/2, y: CY + (w-1.5)*30}],
-      vel: (Math.random()>.5?1:-1) * (1+Math.random()*2),
-      steps: 0,
-      maxSteps: 30 + Math.floor(Math.random()*80),
-      yOff: (w-1.5)*30,
-      col: ['rgba(184,52,24,','rgba(42,95,168,','rgba(180,160,80,','rgba(80,160,100,'][w]
-    });
+  const COLS = [
+    [184,  52,  24],
+    [ 42,  95, 168],
+    [190, 160,  70],
+    [ 80, 170, 120],
+  ];
+  const Y_OFFSETS = [-48, -16, 16, 48];
+  const TRAIL_MAX = 700;
+
+  // Pick a random target scatterer that is not the current position.
+  // Uses a Lévy-like selection: pick a random index gap (heavy-tailed).
+  function pickTarget(currentX) {
+    // Find index of nearest scatterer to currentX
+    let nearIdx = 0;
+    let nearDist = Infinity;
+    for (let i = 0; i < envPts.length; i++) {
+      const d = Math.abs(envPts[i] - currentX);
+      if (d < nearDist) { nearDist = d; nearIdx = i; }
+    }
+    // Jump by a heavy-tailed number of steps left or right
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    const jump = 1 + Math.floor(Math.pow(Math.random(), -1.5));
+    const targetIdx = nearIdx + dir * jump;
+    if (targetIdx >= 0 && targetIdx < envPts.length) {
+      return envPts[targetIdx];
+    }
+    // Target is outside the array — return a plausible off-screen x
+    const lastPt = dir > 0 ? envPts[envPts.length - 1] : envPts[0];
+    return lastPt + dir * jump * 12;
   }
 
-  let t = 0;
+  function newWalker(id) {
+    const y = CY + Y_OFFSETS[id % Y_OFFSETS.length];
+    const [r, g, b] = COLS[id % COLS.length];
+    const startX = W / 2;
+    const target = pickTarget(startX);
+    return {
+      x: startX, y,
+      target,
+      vel: target > startX ? SPEED : -SPEED,
+      history: [{x: startX, y}],
+      r, g, b
+    };
+  }
+
+  let walkers = Array.from({length: 4}, (_, i) => newWalker(i));
+
   function step() {
     ctx.fillStyle = 'rgba(26,23,20,0.15)';
-    ctx.fillRect(0,0,W,H);
+    ctx.fillRect(0, 0, W, H);
 
-    // Draw environment markers
+    // Draw visible scatterer segments
     for (const ep of envPts) {
       if (ep < 0 || ep > W) continue;
       ctx.beginPath();
@@ -561,53 +620,73 @@ function runLevyLorentz() {
       ctx.strokeStyle = 'rgba(255,255,255,0.07)';
       ctx.lineWidth = 1; ctx.stroke();
       ctx.beginPath();
-      ctx.arc(ep, CY, 3, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(255,255,255,0.12)';
-      ctx.fill();
+      ctx.arc(ep, CY, 3, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.12)'; ctx.fill();
     }
 
-    // Axis
+    // Horizontal axis
     ctx.beginPath(); ctx.moveTo(0, CY); ctx.lineTo(W, CY);
     ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1; ctx.stroke();
 
-    for (const w of walkers) {
-      w.steps++;
-      if (w.steps >= w.maxSteps) {
-        w.steps = 0;
-        w.vel = (Math.random()>.5?1:-1) * (2 + Math.pow(Math.random(),-1.2)*3);
-        w.maxSteps = 20 + Math.floor(Math.random()*100);
+    for (let wi = 0; wi < walkers.length; wi++) {
+      const w = walkers[wi];
+
+      // Move toward target at constant speed
+      const dist = w.target - w.x;
+
+      // Respawn immediately if already off-screen
+      if (w.x < 0 || w.x > W) {
+        walkers[wi] = newWalker(wi); continue;
       }
-      w.x += w.vel * .7;
-      // Bounce at walls
-      if (w.x < 20) { w.x = 20; w.vel = Math.abs(w.vel); }
-      if (w.x > W-20) { w.x = W-20; w.vel = -Math.abs(w.vel); }
 
-      const py = CY + w.yOff + Math.sin(t*.04 + w.yOff) * 5;
-      w.history.push({x: w.x, y: py});
-      if (w.history.length > 300) w.history.shift();
-
-      // Trail
-      ctx.beginPath();
-      for (let i = 0; i < w.history.length; i++) {
-        const a = i / w.history.length;
-        if (i===0) ctx.moveTo(w.history[i].x, w.history[i].y);
-        else ctx.lineTo(w.history[i].x, w.history[i].y);
+      if (Math.abs(dist) <= SPEED) {
+        // Arrived at target
+        w.x = w.target;
+        // Off-screen? respawn immediately
+        if (w.x < 0 || w.x > W) {
+          walkers[wi] = newWalker(wi); continue;
+        }
+        // Pick next target
+        const next = pickTarget(w.x);
+        w.target = next;
+        w.vel = next > w.x ? SPEED : -SPEED;
+      } else {
+        w.x += w.vel;
       }
-      ctx.strokeStyle = w.col + '.55)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
 
-      // Head
-      ctx.beginPath();
-      ctx.arc(w.x, py, 5, 0, Math.PI*2);
-      ctx.fillStyle = w.col + '1)';
-      ctx.fill();
+      w.history.push({x: w.x, y: w.y});
+      if (w.history.length > TRAIL_MAX) w.history.shift();
+
+      // Draw trail
+      const hist = w.history;
+      if (hist.length > 1) {
+        for (let i = 1; i < hist.length; i++) {
+          const a = i / hist.length;
+          ctx.beginPath();
+          ctx.moveTo(hist[i-1].x, hist[i-1].y);
+          ctx.lineTo(hist[i].x,   hist[i].y);
+          ctx.strokeStyle = `rgba(${w.r},${w.g},${w.b},${a * 0.7})`;
+          ctx.lineWidth = 1.4;
+          ctx.stroke();
+        }
+      }
+
+      // Glowing head
+      const grd = ctx.createRadialGradient(w.x, w.y, 0, w.x, w.y, 8);
+      grd.addColorStop(0, `rgba(${w.r},${w.g},${w.b},1)`);
+      grd.addColorStop(1, `rgba(${w.r},${w.g},${w.b},0)`);
+      ctx.beginPath(); ctx.arc(w.x, w.y, 8, 0, Math.PI * 2);
+      ctx.fillStyle = grd; ctx.fill();
+      ctx.beginPath(); ctx.arc(w.x, w.y, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgb(${w.r},${w.g},${w.b})`; ctx.fill();
     }
-    t++;
+
     animId = requestAnimationFrame(step);
   }
-  ctx.fillStyle = '#1a1714'; ctx.fillRect(0,0,W,H);
-  step();
+
+  ctx.fillStyle = '#1a1714';
+  ctx.fillRect(0, 0, W, H);
+  animId = requestAnimationFrame(step);
 }
 
 runLorentzGas();
