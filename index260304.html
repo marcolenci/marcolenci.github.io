@@ -325,10 +325,10 @@
   <div class="footer-left">
     Marco Lenci · Università di Bologna
   </div>
-  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
+  <a href="/cdn-cgi/l/email-protection#305d5142535f1e5c555e535970455e59525f1e5944" class="footer-email"><span class="__cf_email__" data-cfemail="3d505c4f5e52135158535e547d4853545f52135449">[email&#160;protected]</span></a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── SCROLL REVEAL ──
 const obs = new IntersectionObserver(es => es.forEach((e,i) => {
   if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i*70); obs.unobserve(e.target); }
@@ -386,21 +386,10 @@ function runLorentzGas() {
     for (let col = -1; col < ncols; col++) {
       const cx = (col + 0.5) * SPACING;
       const cy = (row + 0.5) * SPACING;
-      let x, y, r, attempts = 0;
-      do {
-        const dx = BASE_R * 1.1 * (Math.random() * 2 - 1);
-        const dy = BASE_R * 1.1 * (Math.random() * 2 - 1);
-        r = BASE_R * (0.5 + 0.65 * Math.random());
-        x = cx + dx; y = cy + dy;
-        attempts++;
-      } while (
-        attempts < 50 &&
-        scatterers.some(s => {
-          const ex = x - s.x, ey = y - s.y;
-          return Math.sqrt(ex*ex + ey*ey) < r + s.r + 1;
-        })
-      );
-      scatterers.push({ x, y, r });
+      const dx = BASE_R * 0.6 * Math.sin(col * phi * 2.1 + row * 1.3);
+      const dy = BASE_R * 0.6 * Math.cos(col * 1.5 + row * phi * 1.7);
+      const r  = BASE_R * (0.72 + 0.28 * Math.abs(Math.sin((col + row) * phi)));
+      scatterers.push({ x: cx + dx, y: cy + dy, r });
     }
   }
 
@@ -412,7 +401,7 @@ function runLorentzGas() {
     [ 80,170, 120],   // teal
   ];
   const TRAIL = 500;
-  const SPEED = 3.9;
+  const SPEED = 2.6;
 
   // ── Particle factory ──
   function newParticle(id) {
@@ -464,6 +453,11 @@ function runLorentzGas() {
       ctx.strokeStyle = 'rgba(255,255,255,0.12)';
       ctx.lineWidth = 1;
       ctx.stroke();
+      // Tiny centre dot
+      ctx.beginPath();
+      ctx.arc(sc.x, sc.y, 1.5, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.2)';
+      ctx.fill();
     }
   }
 

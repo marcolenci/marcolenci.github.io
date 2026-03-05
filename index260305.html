@@ -386,21 +386,10 @@ function runLorentzGas() {
     for (let col = -1; col < ncols; col++) {
       const cx = (col + 0.5) * SPACING;
       const cy = (row + 0.5) * SPACING;
-      let x, y, r, attempts = 0;
-      do {
-        const dx = BASE_R * 1.1 * (Math.random() * 2 - 1);
-        const dy = BASE_R * 1.1 * (Math.random() * 2 - 1);
-        r = BASE_R * (0.5 + 0.65 * Math.random());
-        x = cx + dx; y = cy + dy;
-        attempts++;
-      } while (
-        attempts < 50 &&
-        scatterers.some(s => {
-          const ex = x - s.x, ey = y - s.y;
-          return Math.sqrt(ex*ex + ey*ey) < r + s.r + 1;
-        })
-      );
-      scatterers.push({ x, y, r });
+      const dx = BASE_R * 1.4 * (Math.random() * 2 - 1);
+      const dy = BASE_R * 1.4 * (Math.random() * 2 - 1);
+      const r  = BASE_R * (0.4 + 0.9 * Math.random());
+      scatterers.push({ x: cx + dx, y: cy + dy, r });
     }
   }
 
