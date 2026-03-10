@@ -8,19 +8,9 @@
   <link rel="stylesheet" href="../style.css">
   <style>
     .page-header{padding:7rem 0 4rem;border-bottom:1px solid var(--rule);}
-    .page-header .inner{display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;}
     .page-title{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;letter-spacing:-.025em;line-height:1.0;}
     .page-title em{font-style:italic;color:var(--accent);}
     .page-intro{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--muted);max-width:60ch;margin-top:1.5rem;}
-
-    .unibo-box{background:var(--dark);padding:2.2rem 2.5rem;display:flex;flex-direction:column;gap:1.6rem;}
-    .unibo-box-ey{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);}
-    .unibo-box-ti{font-size:1.15rem;font-weight:300;color:#fff;line-height:1.4;}
-    .unibo-box-ti em{font-style:italic;color:var(--accent);}
-    .unibo-box-link{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.08);color:var(--paper);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;transition:background .2s,border-color .2s;}
-    .unibo-box-link:hover{background:rgba(255,255,255,.05);border-color:var(--accent);}
-    .unibo-box-link span.ar{color:var(--accent);font-size:.9rem;}
-    @media(max-width:900px){.page-header .inner{grid-template-columns:1fr;}.unibo-box{display:none;}}
 
     .yr-heading{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);padding:.6rem 0;border-bottom:1px solid var(--rule);margin-bottom:0;display:flex;align-items:center;gap:1rem;margin-top:2.5rem;}
     .yr-heading::after{content:'';flex:1;height:1px;background:var(--rule);}
@@ -67,19 +57,9 @@
 <div class="page-wrap">
   <div class="page-header">
     <div class="inner">
-      <div>
-        <span class="sec-eyebrow">Teaching</span>
-        <h1 class="page-title">Courses,<br><em>Current &amp; Past</em></h1>
-        <p class="page-intro">From first-year analytical mechanics to graduate topics in probability and ergodic theory — including a seminar for the School of Excellence on counterintuitive results in probability and related sciences.</p>
-      </div>
-      <div class="unibo-box">
-        <span class="unibo-box-ey">Institutional Page</span>
-        <p class="unibo-box-ti">Official course listings, exam sessions &amp; more at Marco Lenci's  <em>institutional teaching page</em> at <em>Unibo</em>:</p>
-        <a href="https://www.unibo.it/sitoweb/marco.lenci/teachings" class="unibo-box-link" target="_blank">
-          <span>unibo.it/sitoweb/marco.lenci/teachings</span>
-          <span class="ar">&#8599;</span>
-        </a>
-      </div>
+      <span class="sec-eyebrow">Teaching</span>
+      <h1 class="page-title">Courses,<br><em>Current &amp; Past</em></h1>
+      <p class="page-intro">From first-year analytical mechanics to graduate topics in probability and ergodic theory — including a seminar for the School of Excellence on counterintuitive results in probability and related sciences.</p>
     </div>
   </div>
 
@@ -131,7 +111,7 @@
         <div class="course-card">
           <div class="course-code">C7690 · 1 CFU</div>
           <div class="course-name">Conterintuitive Results in Probability and Related Sciences</div>
-          <div class="course-meta">Ordinary Programs of the Collegio Superiore · Bologna campus · Mar 2026</div>
+          <div class="course-meta">Ordinary Programs of the Collegio Superiore · Bologna campus · Mar 2026<</div>
           <div class="course-detail">A seminar exploring celebrated paradoxes and counterintuitive phenomena in probability, statistics, and related sciences. Starting from a rigorous introduction to the foundations of probability theory, the course examines striking examples that confound common sense — discussing their cognitive and social dimensions, and stressing the importance of a precise logical-mathematical framing of any problem.</div>
           <div class="course-links">
             <a href="https://site.unibo.it/collegio-superiore/it/corsi/piani-didattici/insegnamento/2025/550364" class="btn-sm" target="_blank">Course page (in Italian)</a>
@@ -142,56 +122,22 @@
 
       <!-- PAST BOLOGNA COURSES -->
       <div class="reveal" style="margin-top:3rem">
-        <span class="sec-eyebrow" style="margin-bottom:1.5rem">Most Frequently Taught Courses · Bologna (before A.Y. 2022/23)</span>
-
-        <div class="yr-heading">Graduate (MSc Mathematics)</div>
+        <span class="sec-eyebrow" style="margin-bottom:1.5rem">Recent Past Courses · Bologna (selection)</span>
+        <div class="yr-heading">Mathematical Methods &amp; Analysis</div>
         <div class="course-card">
-          <div class="course-code">76304 · 6 CFU</div>
-          <div class="course-name">Information Theory and Complexity</div>
-          <div class="course-meta">Second cycle degree in Mathematics (cod. 8208 / 5827) · Bologna campus · Taught 6 times: 2015/16, 2017/18–2021/22</div>
-          <div class="course-detail">Foundations of information theory: entropy of partitions and random variables, joint and conditional entropies, relative entropy, mutual information, and the Shannon-McMillan-Breiman theorem for i.i.d. and stationary processes. Applications to data compression: Kraft inequality, optimal codes, Huffman and Shannon-Elias-Fano codes, universal codes, algorithms LZ78 and LZW. Introduction to Kolmogorov algorithmic complexity: Turing machines, universal computation, the halting problem, and Chaitin's numbers.</div>
-          <div class="course-links">
-            <a href="https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/insegnamenti/insegnamento/2021/433609" class="btn-sm" target="_blank">Unibo page (2021/22)</a>
-          </div>
-        </div>
-
-        <div class="yr-heading">Undergraduate (BSc Mathematics)</div>
-        <div class="course-card">
-          <div class="course-code">28360 · 7 CFU</div>
-          <div class="course-name">Mathematical Physics 1</div>
-          <div class="course-meta">First cycle degree in Mathematics (cod. 8010) · Bologna campus · Taught 5 times: 2010/11–2014/15</div>
-          <div class="course-detail">An introduction to the physical and mathematical foundations of classical mechanics for mathematics students. Using elementary physical phenomena as motivation, the course develops core analytical tools — limits, derivatives, integrals, and vector calculus — in a scientific context. Topics include one-dimensional kinematics, harmonic motion, Newtonian dynamics, and an introduction to the scientific method, with the dual goal of familiarizing students with classical physics and illuminating the original motivations behind fundamental mathematical definitions.</div>
-          <div class="course-links">
-            <a href="https://www.unibo.it/en/teaching/course-unit-catalogue/course-unit/2014/323865" class="btn-sm" target="_blank">Unibo page (2014/15)</a>
-          </div>
-        </div>
-
-        <div class="yr-heading">Architecture · Single-Cycle Degree (Cesena campus)</div>
-        <div class="course-card">
-          <div class="course-code">00674 · 8 CFU · Module 1</div>
-          <div class="course-name">Mathematics — Module 1: Calculus I</div>
-          <div class="course-meta">Single-cycle degree in Architecture (cod. 0881) · Cesena campus · Taught 5 times: 2016/17–2020/21</div>
-          <div class="course-detail">First module of a two-semester integrated mathematics course for architecture students. Covers single-variable calculus: functions of a real variable, limits and continuity, differential calculus and its applications (relative and absolute extrema, graph sketching), and integral calculus. The second module (Linear Algebra and Geometry, taught by a colleague) covered first-order ODEs, linear algebra, and three-dimensional analytic geometry.</div>
-          <div class="course-links">
-            <a href="https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2019/377739" class="btn-sm" target="_blank">Unibo page (2019/20)</a>
-          </div>
+          <div class="course-name">Mathematical Analysis for Architecture</div>
+          <div class="course-meta">First cycle degree, Architecture · Taught in multiple academic years including 2019–2023</div>
+          <div class="course-detail">Calculus, ODEs, and their applications tailored to students in architecture and design. Includes a bespoke exam guide (Vademecum per gli esami di matematica online) developed for online assessment during and after the pandemic.</div>
         </div>
         <div class="course-card">
-          <div class="course-code">70463 · 4 CFU</div>
-          <div class="course-name">Fundamentals of Mathematics II</div>
-          <div class="course-meta">Single-cycle degree in Architecture (cod. 0881) · Cesena campus · Taught 5 times: 2016/17–2020/21</div>
-          <div class="course-detail">A follow-up mathematics course for architecture students, extending calculus to several variables. Topics include differential calculus for vector-valued functions and arc length; differential and integral calculus for scalar functions of several real variables; free and constrained optimization; and elementary second-order linear ODEs, with applications to areas, volumes, and moments.</div>
-          <div class="course-links">
-            <a href="https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/insegnamenti/insegnamento/2020/379274" class="btn-sm" target="_blank">Unibo page (2020/21)</a>
-          </div>
+          <div class="course-name">Mathematical Physics</div>
+          <div class="course-meta">MSc Physics / MSc Mathematics · Taught regularly 2007–2022</div>
+          <div class="course-detail">Rigorous treatment of classical and statistical mechanics. Topics vary by year but typically include Hamiltonian systems, stability, ergodic theory, and thermodynamical limits.</div>
         </div>
-
-        <div class="yr-heading">Chemistry (Bologna campus)</div>
         <div class="course-card">
-          <div class="course-code">15578 / 16954 · Module 2</div>
-          <div class="course-name">Mathematics II / Mathematics 2</div>
-          <div class="course-meta">First cycle degree in Chemistry · Bologna campus · Taught 4 times: 2006/07–2009/10</div>
-          <div class="course-detail">Second module of the integrated two-semester course "Mathematics (I.C.)" for Chemistry students. The course covered standard Calculus 2 topics: linear algebra (vectors, linear independence, matrices, determinants, and linear transformations) and multivariable calculus (functions of several real variables, limits and continuity, partial derivatives, optimization of functions of several variables, and multiple integrals).</div>
+          <div class="course-name">Probability and Mathematical Statistics</div>
+          <div class="course-meta">First cycle degree, Mathematics / Physics · Various years</div>
+          <div class="course-detail">Foundations of measure-theoretic probability, limit theorems, Markov chains, and their applications in physics and data analysis.</div>
         </div>
       </div>
 
@@ -219,10 +165,7 @@
 
 <footer>
   <div class="footer-left">Marco Lenci · Università di Bologna</div>
-  <a id="footer-email-link" href="#" class="footer-email"></a>
-<script>
-  (function(){var u='marco.lenci',d='unibo.it',e=u+'@'+d;var a=document.getElementById('footer-email-link');a.href='mailto:'+e;a.textContent=e;})();
-</script>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
 </footer>
 <script>
   const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}}),{threshold:.04});
