@@ -218,11 +218,10 @@
 </div>
 
 <footer>
-  <div class="footer-left">Marco Lenci · Università di Bologna</div>
-  <a id="footer-email-link" href="#" class="footer-email"></a>
-<script>
-  (function(){var u='marco.lenci',d='unibo.it',e=u+'@'+d;var a=document.getElementById('footer-email-link');a.href='mailto:'+e;a.textContent=e;})();
-</script>
+  <div class="footer-left">
+    Marco Lenci · Università di Bologna
+  </div>
+  <a href="mailto:marco.lenci@unibo.it" class="footer-email">marco.lenci@unibo.it</a>
 </footer>
 <script>
   const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}}),{threshold:.04});
